@@ -116,4 +116,88 @@ class renderDatasets {
   }
 
 
+rederDataset1(datasetName, parentDiv) {
+    DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
+        df => {
+             //console.log(cleanDF.listColumns());
+             
+const selectColumns = df.select('School ID','School Name','EMH_School','Street Address','City','State', 
+                'ZIP','Phone Number','Collaborative Name','Adequate Yearly Progress Made?',   
+                'School Track','CPS Performance Policy Status','Overall Rating','Healthy Schools Certified?', 
+                'Safety','Safety Score','Family Involvement Icon','Growth Overall Level','Environment Score', 
+                'Instruction Icon','Instruction Score','Parent Engagement Icon','Parent Engagement Score',
+                'Parent Environment Icon','Parent Environment Score','Average Student Attendance',
+                'Rate of Misconducts (per 100 students)','Average Teacher Attendance',
+                'Individualized Education Program Compliance Rate','College Enrollment',
+                'General Services Route','Latitude','Longitude','Community Area Number',
+                'Community Area Name','Ward','Police District', 'Location');
+                var dataset1Data = selectColumns.toCollection();
+                 //console.log(test);
+                 var thead = '<tr>'+
+                                '<th>School ID</th><th>School Name</th><th>EMH_School</th><th>Street Address</th>'+
+                                '<th>City</th><th>State</th><th>ZIP</th><th>Phone Number</th><th>Collaborative Name</th>'+
+                                '<th>Adequate Yearly Progress Made?</th><th>School Track</th><th>CPS Performance Policy Status</th>'+
+                                '<th>Overall Rating</th><th>Healthy Schools Certified?</th><th>Safety</th><th>Safety Score</th>'+
+                                '<th>Family Involvement Icon</th><th>Growth Overall Level</th><th>Environment Score </th>'+
+                                '<th>Instruction Icon</th><th>Instruction Score</th><th>Parent Engagement Icon</th>'+
+                                '<th>Parent Engagement Score</th><th>Parent Environment Icon</th><th>Parent Environment Score</th>'+
+                                '<th>Average Student Attendance</th><th>Rate of Misconducts (per 100 students)</th>'+
+                                '<th>Average Teacher Attendance</th><th>Individualized Education Program Compliance Rate</th>'+
+                                '<th>College Enrollment</th><th>General Services Route</th><th>Latitude</th>'+
+                                '<th>Longitude</th><th>Community Area Number</th><th>Community Area Name</th>'+
+                                '<th>Ward</th><th>Police District</th><th>Location</th>';
+                               '</tr>';
+                  $("#"+parentDiv+"Table thead").html(thead);
+                  var tbody = $("#"+parentDiv+"Table tbody");
+
+            for ( var i = 0; i < dataset1Data.length; i++) {
+              var content = '<tr>'+
+                             '<td>'+dataset1Data[i]["School ID"]+'</td>'+
+                              '<td>'+dataset1Data[i]["School Name"]+'</td>'+
+                              '<td>'+dataset1Data[i]["EMH_School"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Street Address"]+'</td>'+
+                              '<td>'+dataset1Data[i]["City"]+'</td>'+
+                              '<td>'+dataset1Data[i]["State"]+'</td>'+
+                              '<td>'+dataset1Data[i]["ZIP"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Phone Number"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Collaborative Name"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Adequate Yearly Progress Made?"]+'</td>'+
+                              '<td>'+dataset1Data[i]["School Track"]+'</td>'+
+                              '<td>'+dataset1Data[i]["CPS Performance Policy Status"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Overall Rating"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Healthy Schools Certified?"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Safety"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Safety Score"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Family Involvement Icon"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Growth Overall Level"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Environment Score"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Instruction Icon"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Instruction Score"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Parent Engagement Icon"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Parent Engagement Score"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Parent Environment Icon"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Parent Environment Score"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Average Student Attendance"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Rate of Misconducts (per 100 students)"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Average Teacher Attendance"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Individualized Education Program Compliance Rate"]+'</td>'+
+                              '<td>'+dataset1Data[i]["College Enrollment"]+'</td>'+
+                              '<td>'+dataset1Data[i]["General Services Route"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Latitude"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Longitude"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Community Area Number"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Community Area Name"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Ward"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Police District"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Location"]+'</td>'+
+                            '</tr>';
+              $(tbody).append(content);
+            }
+        }
+    ).catch(err => {
+        console.log(err);
+    });
+  }
+
+
 }
