@@ -124,12 +124,12 @@ rederDataset1(datasetName, parentDiv) {
                 const selectColumns = df.select('School ID','School Name','EMH_School','Street Address','City','State',
                 'ZIP','Phone Number','Collaborative Name','Adequate Yearly Progress Made',
                 'School Track','CPS Performance Policy Status','Overall Rating','Healthy Schools Certified?',
-                'Safety','Safety Score','Family Involvement Icon','Growth Overall Level','Environment Score',
-                'Instruction Icon','Instruction Score','Parent Engagement Icon','Parent Engagement Score',
+                'Safety ','Safety Score','Family Involvement Icon','Growth Overall Level ','Environment Score',
+                'Instruction Icon ','Instruction Score','Parent Engagement Icon ','Parent Engagement Score',
                 'Parent Environment Icon','Parent Environment Score','Average Student Attendance',
-                'Rate of Misconducts (per 100 students)','Average Teacher Attendance',
-                'Individualized Education Program Compliance Rate','College Enrollment',
-                'General Services Route','Latitude','Longitude','Community Area Number',
+                'Rate of Misconducts (per 100 students) ','Average Teacher Attendance',
+                'Individualized Education Program Compliance Rate ','College Enrollment',
+                'General Services Route ','Latitude','Longitude','Community Area Number',
                 'Community Area Name','Ward','Police District', 'Location');
                 var dataset1Data = selectColumns.toCollection();
                  //console.log(test);
