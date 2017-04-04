@@ -33,7 +33,7 @@ class Dataset1 extends Datasets {
     this.datasetName=datasetName;
     this.parentDiv=parentDiv;
     var test = new renderDatasets(datasetName, parentDiv);
-    test.rederDataset(datasetName, parentDiv);
+    test.rederDataset1(datasetName, parentDiv);
   }
 
 }
@@ -120,11 +120,11 @@ rederDataset1(datasetName, parentDiv) {
     DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
         df => {
              //console.log(cleanDF.listColumns());
-             
-                const selectColumns = df.select('School ID','School Name','EMH_School','Street Address','City','State', 
-                'ZIP','Phone Number','Collaborative Name','Adequate Yearly Progress Made?',   
-                'School Track','CPS Performance Policy Status','Overall Rating','Healthy Schools Certified?', 
-                'Safety','Safety Score','Family Involvement Icon','Growth Overall Level','Environment Score', 
+
+                const selectColumns = df.select('School ID','School Name','EMH_School','Street Address','City','State',
+                'ZIP','Phone Number','Collaborative Name','Adequate Yearly Progress Made?',
+                'School Track','CPS Performance Policy Status','Overall Rating','Healthy Schools Certified?',
+                'Safety','Safety Score','Family Involvement Icon','Growth Overall Level','Environment Score',
                 'Instruction Icon','Instruction Score','Parent Engagement Icon','Parent Engagement Score',
                 'Parent Environment Icon','Parent Environment Score','Average Student Attendance',
                 'Rate of Misconducts (per 100 students)','Average Teacher Attendance',
@@ -136,7 +136,7 @@ rederDataset1(datasetName, parentDiv) {
                  var thead = '<tr>'+
                                 '<th>School ID</th><th>School Name</th><th>EMH_School</th><th>Street Address</th>'+
                                 '<th>City</th><th>State</th><th>ZIP</th><th>Phone Number</th><th>Collaborative Name</th>'+
-                                '<th>Adequate Yearly Progress Made?</th><th>School Track</th><th>CPS Performance Policy Status</th>'+
+                                '<th>Adequate Yearly Progress Made</th><th>School Track</th><th>CPS Performance Policy Status</th>'+
                                 '<th>Overall Rating</th><th>Healthy Schools Certified?</th><th>Safety</th><th>Safety Score</th>'+
                                 '<th>Family Involvement Icon</th><th>Growth Overall Level</th><th>Environment Score </th>'+
                                 '<th>Instruction Icon</th><th>Instruction Score</th><th>Parent Engagement Icon</th>'+
@@ -147,10 +147,10 @@ rederDataset1(datasetName, parentDiv) {
                                 '<th>Longitude</th><th>Community Area Number</th><th>Community Area Name</th>'+
                                 '<th>Ward</th><th>Police District</th><th>Location</th>';
                                '</tr>';
-                  $("#"+parentDiv+"Table thead").html(thead);
-                  var tbody = $("#"+parentDiv+"Table tbody");
+              $("#"+parentDiv+"Table thead").html(thead);
+              var tbody = $("#"+parentDiv+"Table tbody");
 
-            for ( var i = 0; i < dataset1Data.length; i++) {
+              for ( var i = 0; i < dataset1Data.length; i++) {
               var content = '<tr>'+
                              '<td>'+dataset1Data[i]["School ID"]+'</td>'+
                               '<td>'+dataset1Data[i]["School Name"]+'</td>'+
