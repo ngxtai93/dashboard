@@ -121,7 +121,7 @@ rederDataset1(datasetName, parentDiv) {
         df => {
              //console.log(cleanDF.listColumns());
              
-const selectColumns = df.select('School ID','School Name','EMH_School','Street Address','City','State', 
+                const selectColumns = df.select('School ID','School Name','EMH_School','Street Address','City','State', 
                 'ZIP','Phone Number','Collaborative Name','Adequate Yearly Progress Made?',   
                 'School Track','CPS Performance Policy Status','Overall Rating','Healthy Schools Certified?', 
                 'Safety','Safety Score','Family Involvement Icon','Growth Overall Level','Environment Score', 
@@ -161,7 +161,7 @@ const selectColumns = df.select('School ID','School Name','EMH_School','Street A
                               '<td>'+dataset1Data[i]["ZIP"]+'</td>'+
                               '<td>'+dataset1Data[i]["Phone Number"]+'</td>'+
                               '<td>'+dataset1Data[i]["Collaborative Name"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Adequate Yearly Progress Made?"]+'</td>'+
+                              '<td>'+dataset1Data[i]["Adequate Yearly Progress Made"]+'</td>'+
                               '<td>'+dataset1Data[i]["School Track"]+'</td>'+
                               '<td>'+dataset1Data[i]["CPS Performance Policy Status"]+'</td>'+
                               '<td>'+dataset1Data[i]["Overall Rating"]+'</td>'+
