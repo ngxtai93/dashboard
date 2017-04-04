@@ -19,10 +19,11 @@
 //   }
 
 //}
-const DataFrame = dfjs.DataFrame;
+var dataset1Data, dataset2Data, dataset3Data, dataset4Data, dataset5Data;
+var DataFrame;
 class Datasets {
   constructor() {
-
+    DataFrame = dfjs.DataFrame;
     console.log("Instance to Dataframe created");
   }
 }
@@ -42,7 +43,7 @@ class Dataset2 extends Datasets {
     this.datasetName=datasetName;
     this.parentDiv=parentDiv;
     var test = new renderDatasets(datasetName, parentDiv);
-    test.rederDataset(datasetName, parentDiv);
+    test.rederDataset2(datasetName, parentDiv);
   }
 
 }
@@ -61,7 +62,7 @@ class renderDatasets {
     this.datasetName=datasetName;
     this.parentDiv=parentDiv;
   }
-  rederDataset(datasetName, parentDiv) {
+  rederDataset2(datasetName, parentDiv) {
     DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
         df => {
              //console.log(cleanDF.listColumns());
@@ -70,7 +71,7 @@ class renderDatasets {
                'College Enrollment 2012 - Percent', 'Overall Foundation', 'Supportive Environment', 'Safety',
                 'Student Attendance 2011 - Percent', 'Student Attendance 2012 - Percent', 'Teacher Attendance 2011 - Percent',
                  'Teacher Attendance 2012 - Percent', 'Healthy School Certified', 'Blue Ribbon Award');
-                 var dataset1Data = selectColumns.toCollection();
+                dataset2Data = selectColumns.toCollection();
                  //console.log(test);
                  var thead = '<tr>'+
                                  '<th>School ID</th><th>School Name</th><th>Street Address</th><th>City</th><th>ZIP</th><th>Website</th>'+
@@ -83,28 +84,28 @@ class renderDatasets {
                   $("#"+parentDiv+"Table thead").html(thead);
                   var tbody = $("#"+parentDiv+"Table tbody");
 
-            for ( var i = 0; i < dataset1Data.length; i++) {
+            for ( var i = 0; i < dataset2Data.length; i++) {
               var content = '<tr>'+
-                              '<td>'+dataset1Data[i]["School ID"]+'</td>'+
-                              '<td>'+dataset1Data[i]["School Name"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Street Address"]+'</td>'+
-                              '<td>'+dataset1Data[i]["City"]+'</td>'+
-                              '<td>'+dataset1Data[i]["ZIP"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Website"]+'</td>'+
-                              '<td>'+dataset1Data[i]["School Track"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Overall Rating"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Growth Overall Level"]+'</td>'+
-                              '<td>'+dataset1Data[i]["College Enrollment 2011 - Percent"]+'</td>'+
-                              '<td>'+dataset1Data[i]["College Enrollment 2012 - Percent"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Overall Foundation"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Supportive Environment"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Safety"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Student Attendance 2011 - Percent"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Student Attendance 2012 - Percent"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Teacher Attendance 2011 - Percent"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Teacher Attendance 2012 - Percent"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Healthy School Certified"]+'</td>'+
-                              '<td>'+dataset1Data[i]["Blue Ribbon Award"]+'</td>'+
+                              '<td>'+dataset2Data[i]["School ID"]+'</td>'+
+                              '<td>'+dataset2Data[i]["School Name"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Street Address"]+'</td>'+
+                              '<td>'+dataset2Data[i]["City"]+'</td>'+
+                              '<td>'+dataset2Data[i]["ZIP"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Website"]+'</td>'+
+                              '<td>'+dataset2Data[i]["School Track"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Overall Rating"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Growth Overall Level"]+'</td>'+
+                              '<td>'+dataset2Data[i]["College Enrollment 2011 - Percent"]+'</td>'+
+                              '<td>'+dataset2Data[i]["College Enrollment 2012 - Percent"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Overall Foundation"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Supportive Environment"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Safety"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Student Attendance 2011 - Percent"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Student Attendance 2012 - Percent"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Teacher Attendance 2011 - Percent"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Teacher Attendance 2012 - Percent"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Healthy School Certified"]+'</td>'+
+                              '<td>'+dataset2Data[i]["Blue Ribbon Award"]+'</td>'+
                             '</tr>';
               $(tbody).append(content);
             }
