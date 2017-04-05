@@ -20,7 +20,9 @@
 
 //}
 var dataset1Data, dataset2Data, dataset3Data, dataset4Data, dataset5Data;
+var chartVar;
 var DataFrame;
+var getData;
 class Datasets {
   constructor() {
     DataFrame = dfjs.DataFrame;
@@ -65,6 +67,11 @@ class renderDatasets {
   rederDataset2(datasetName, parentDiv) {
     DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
         df => {
+          //chart()
+          // var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
+          // chartVar = groupedDF.toCollection();
+                          //console.log(groupedDF.aggregate(group => group.count()));
+
              //console.log(cleanDF.listColumns());
              const selectColumns = df.select('School ID', 'School Name', 'Street Address', 'City', 'ZIP','Website', 'School Track',
               'Overall Rating', 'Growth Overall Level', 'College Enrollment 2011 - Percent',
@@ -116,7 +123,7 @@ class renderDatasets {
   }
 
 
-rederDataset1(datasetName, parentDiv) {
+  rederDataset1(datasetName, parentDiv) {
     DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
         df => {
              //console.log(cleanDF.listColumns());
@@ -200,4 +207,84 @@ rederDataset1(datasetName, parentDiv) {
   }
 
 
+}
+class PlotChart {
+  constructor(datasetName) {
+    this.datasetName = datasetName;
+  }
+  sendData () {
+
+    DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
+        df => {
+          var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
+          chartVar = groupedDF.toCollection();
+          console.log(chartVar);
+          return chartVar;
+        }
+      ).catch(err => {
+          console.log(err);
+      });
+    
+
+
+    }
+
+
+}
+class BarChart extends PlotChart {
+  constructor (datasetName) {
+    super(datasetName);
+  }
+  plotBarchart( datasetName ) {
+     getData = super.sendData();
+    // var getData;
+    // DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
+    //     df => {
+    //       var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
+    //       getData = groupedDF.toCollection();
+    //     }
+    //   ).catch(err => {
+    //       console.log(err);
+    //   });
+      setTimeout( function () {
+        var labelArray =[];
+        var dataArray = [];
+        var backgroundColorArray = [];
+        var borderColorArray = [];
+        for ( var i in getData ) {
+          labelArray.push(getData[i].ZIP);
+          dataArray.push(getData[i].Count);
+          var color1 = Math.ceil(Math.random() * 255);
+          var color2 = Math.ceil(Math.random() * 255);
+          var color3 = Math.ceil(Math.random() * 255);
+          //console.log(color1, color2, color3);
+          backgroundColorArray.push("rgba("+ color1 +","+ color2 +","+ color3 +","+Math.random()+")");
+          borderColorArray.push("rgba("+ color1 +","+ color2 +","+ color3 +","+1+")");
+        }
+        var ctxBar = document.getElementById('dataset1BarChart');
+        var barChart = new Chart(ctxBar, {
+          type: 'bar',
+          data: {
+              labels: labelArray,
+              datasets: [{
+                  label: 'ZIP',
+                  data: dataArray,
+                  backgroundColor: backgroundColorArray,
+                  borderColor: borderColorArray,
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+        });
+      }, 2000);
+
+  }
 }

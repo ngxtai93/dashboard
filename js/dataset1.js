@@ -12,7 +12,33 @@
 '<th>Ward</th><th>Police District</th><th>Location</th>'+
 
 
+let myFirstPromise = new Promise((resolve, reject) => {
 
+  setTimeout(function(){
+    DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
+        df => {
+          var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
+          chartVar = groupedDF.toCollection();
+          console.log(chartVar);
+        }
+      ).catch(err => {
+          console.log(err);
+      });
+      console.log(chartVar);
+
+
+    
+
+    resolve(chartVar); // Yay! Everything went well!
+  }, 250);
+});
+
+myFirstPromise.then((chartVar) => {
+    return chartVar;
+  // successMessage is whatever we passed in the resolve(...) function above.
+  // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+  console.log("Yay! " + successMessage);
+});
 
 
 
