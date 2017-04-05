@@ -20,7 +20,7 @@
 
 //}
 var dataset1Data, dataset2Data, dataset3Data, dataset4Data, dataset5Data;
-var chartVar;
+//var chartVar;
 var DataFrame;
 var getData;
 class Datasets {
@@ -212,19 +212,20 @@ class PlotChart {
   constructor(datasetName) {
     this.datasetName = datasetName;
   }
-  sendData () {
+  sendData (datasetName) {
+    console.log(datasetName+"In function");
 
-    DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
+    DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
         df => {
           var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
-          chartVar = groupedDF.toCollection();
-          console.log(chartVar);
-          return chartVar;
+          getData = groupedDF.toCollection();
+          console.log(getData);
+          return false;
         }
       ).catch(err => {
           console.log(err);
       });
-    
+
 
 
     }
@@ -234,9 +235,12 @@ class PlotChart {
 class BarChart extends PlotChart {
   constructor (datasetName) {
     super(datasetName);
+    this.datasetName = datasetName;
+
   }
-  plotBarchart( datasetName ) {
-     getData = super.sendData();
+  plotBarchart( ) {
+    super.sendData(this.datasetName);
+    //console.log(getData);
     // var getData;
     // DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
     //     df => {
@@ -251,7 +255,7 @@ class BarChart extends PlotChart {
         var dataArray = [];
         var backgroundColorArray = [];
         var borderColorArray = [];
-        for ( var i in getData ) {
+        for ( var i in this.getData ) {
           labelArray.push(getData[i].ZIP);
           dataArray.push(getData[i].Count);
           var color1 = Math.ceil(Math.random() * 255);
