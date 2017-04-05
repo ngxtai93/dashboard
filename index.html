@@ -142,7 +142,7 @@
                           <div class="form-group">
                              <div class="col-lg-10 col-lg-offset-2 text-right">
                                <button type="reset" class="btn btn-default">Cancel</button>
-                               <button type="submit" class="btn btn-primary mrL-15 mrR-10">Plot Chart</button>
+                               <a href="#" id="PlotChart1" class="btn btn-primary mrL-15 mrR-10">Plot Chart</a>
                              </div>
                            </div>
                           </fieldset>
@@ -332,6 +332,17 @@
 
     <script type="text/javascript" src="js/extractData.js"></script>
     <script type="text/javascript">
+      $(window).on('load', function () {
+        var test = new Datasets();
+      });
+    </script>
+    <script type="text/javascript">
+      $("#PlotChart1").on('click', function () {
+        var getBarChartData = new BarChart('Ch_PS_11-12');
+        getBarChartData.plotBarchart();
+      });
+    </script>
+    <script type="text/javascript">
         //var DataFrame = dfjs.DataFrame;
         //const df = new DataFrame(data, columns);
         //DataFrame.fromCSV('datasets/Chicago_Public_Schools___High_School_Progress_Report_Card__2012-2013_.csv').then(df => df);
@@ -360,43 +371,43 @@
     </script>
     <script>
     /*Bar Chart Data Start*/
-    var ctxBar = document.getElementById("dataset1BarChart");
-    var barChart = new Chart(ctxBar, {
-      type: 'bar',
-      data: {
-          labels: ["60616", "60618", "60625", "60630", "60635", "60640"],
-          datasets: [{
-              label: '# of Schools',
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255,99,132,1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
-          }
-      }
-    });
+    // var ctxBar = document.getElementById("dataset1BarChart");
+    // var barChart = new Chart(ctxBar, {
+    //   type: 'bar',
+    //   data: {
+    //       labels: ["60616", "60618", "60625", "60630", "60635", "60640"],
+    //       datasets: [{
+    //           label: '# of Schools',
+    //           data: [12, 19, 3, 5, 2, 3],
+    //           backgroundColor: [
+    //               'rgba(255, 99, 132, 0.2)',
+    //               'rgba(54, 162, 235, 0.2)',
+    //               'rgba(255, 206, 86, 0.2)',
+    //               'rgba(75, 192, 192, 0.2)',
+    //               'rgba(153, 102, 255, 0.2)',
+    //               'rgba(255, 159, 64, 0.2)'
+    //           ],
+    //           borderColor: [
+    //               'rgba(255,99,132,1)',
+    //               'rgba(54, 162, 235, 1)',
+    //               'rgba(255, 206, 86, 1)',
+    //               'rgba(75, 192, 192, 1)',
+    //               'rgba(153, 102, 255, 1)',
+    //               'rgba(255, 159, 64, 1)'
+    //           ],
+    //           borderWidth: 1
+    //       }]
+    //   },
+    //   options: {
+    //       scales: {
+    //           yAxes: [{
+    //               ticks: {
+    //                   beginAtZero:true
+    //               }
+    //           }]
+    //       }
+    //   }
+    // });
     /*Bar Chart End*/
     /*Line Chart Start*/
     var ctxLine = document.getElementById("dataset1LineChart");
