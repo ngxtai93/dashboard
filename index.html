@@ -158,6 +158,7 @@
                                   </div>
                                   <div id="collapseOne" class="panel-collapse collapse">
                                       <div class="panel-body">
+                                          <h6 class="text-center"><strong>Number of Schools / Zip code</strong></h6>
                                           <canvas id="dataset1BarChart" width="400" height="auto"></canvas>
                                       </div>
                                   </div>
@@ -170,6 +171,7 @@
                                 </div>
                                   <div id="collapseTwo" class="panel-collapse collapse">
                                       <div class="panel-body">
+                                          <h6 class="text-center"><strong>School and their Safety</strong></h6>
                                           <canvas id="dataset1PieChart" width="400" height="100"></canvas>
                                       </div>
                                   </div>
@@ -183,6 +185,7 @@
                                 </div>
                                   <div id="collapseThree" class="panel-collapse collapse">
                                       <div class="panel-body">
+                                        <h6 class="text-center"><strong>Schools / Zip code</strong></h6>
                                           <canvas id="dataset1LineChart" width="400" height="auto"></canvas>
                                       </div>
                                   </div>
@@ -280,7 +283,7 @@
     <!--Footer Ends-->
     <!-- Modal for Confirm Test Submission Start -->
     <div id="feedFoodPopup" class="modal">
-        <div class="modal-dialog">
+         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header pdB-10">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -341,7 +344,12 @@
         e.preventDefault();
         var getBarChartData = new BarChart('Ch_PS_11-12');
         getBarChartData.plotBarchart();
+        var getLineChartData = new LineChart('Ch_PS_11-12');
+        getLineChartData.plotLinechart();
+        var getPieChartData = new PieChart('Ch_PS_11-12');
+        getPieChartData.plotPiechart();
         $("#collapseOne").addClass("in");
+
       });
     </script>
     <script type="text/javascript">
@@ -435,64 +443,70 @@
     // });
     /*Bar Chart End*/
     /*Line Chart Start*/
-    var ctxLine = document.getElementById("dataset1LineChart");
-    var lineChart = new Chart(ctxLine, {
-        type: 'line',
-        data: {
-              labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [
-                {
-                    label: "My First dataset",
-                    fill: false,
-                    lineTension: 0.1,
-                    backgroundColor: "rgba(75,192,192,0.4)",
-                    borderColor: "rgba(75,192,192,1)",
-                    borderCapStyle: 'butt',
-                    borderDash: [],
-                    borderDashOffset: 0.0,
-                    borderJoinStyle: 'miter',
-                    pointBorderColor: "rgba(75,192,192,1)",
-                    pointBackgroundColor: "#fff",
-                    pointBorderWidth: 1,
-                    pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                    pointHoverBorderColor: "rgba(220,220,220,1)",
-                    pointHoverBorderWidth: 2,
-                    pointRadius: 1,
-                    pointHitRadius: 10,
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    spanGaps: false,
-                }
-            ]
-        }
-    });
+    // var ctxLine = document.getElementById("dataset1LineChart");
+    // var lineChart = new Chart(ctxLine, {
+    //     type: 'line',
+    //     data: {
+    //           labels: ["January", "February", "March", "April", "May", "June", "July"],
+    //         datasets: [
+    //             {
+    //                 label: "My First dataset",
+    //                 fill: false,
+    //                 lineTension: 0.1,
+    //                 backgroundColor: "rgba(75,192,192,0.4)",
+    //                 borderColor: "rgba(75,192,192,1)",
+    //                 borderCapStyle: 'butt',
+    //                 borderDash: [],
+    //                 borderDashOffset: 0.0,
+    //                 borderJoinStyle: 'miter',
+    //                 pointBorderColor: "rgba(75,192,192,1)",
+    //                 pointBackgroundColor: "#fff",
+    //                 pointBorderWidth: 1,
+    //                 pointHoverRadius: 5,
+    //                 pointHoverBackgroundColor: "rgba(75,192,192,1)",
+    //                 pointHoverBorderColor: "rgba(220,220,220,1)",
+    //                 pointHoverBorderWidth: 2,
+    //                 pointRadius: 1,
+    //                 pointHitRadius: 10,
+    //                 data: [65, 59, 80, 81, 56, 55, 40],
+    //                 spanGaps: false,
+    //             }
+    //         ]
+    //     }
+    // });
     /*Line Chart End*/
     /*Pie Chart Start*/
-    var ctxPie = document.getElementById("dataset1PieChart");
-    var myPieChart = new Chart(ctxPie,{
-        type: 'pie',
-        data: {
-          labels: [
-              "Red",
-              "Blue",
-              "Yellow"
-          ],
-          datasets: [
-              {
-                  data: [300, 50, 100],
-                  backgroundColor: [
-                      "#FF6384",
-                      "#36A2EB",
-                      "#FFCE56"
-                  ],
-                  hoverBackgroundColor: [
-                      "#FF6384",
-                      "#36A2EB",
-                      "#FFCE56"
-                  ]
-              }]
-            }
-    });
+    // var ctxPie = document.getElementById("dataset1PieChart");
+    // var myPieChart = new Chart(ctxPie,{
+    //     type: 'pie',
+    //     data: {
+    //       labels: [
+    //           "Very Strong",
+    //           "Strong",
+    //           "Average",
+    //           "Weak",
+    //           "Very Weak"
+    //       ],
+    //       datasets: [
+    //           {
+    //               data: [300, 50, 100, 20, 150],
+    //               backgroundColor: [
+    //                   "#FF6384",
+    //                   "#36A2EB",
+    //                   "#FFCE56",
+    //                   "#FFGGHH",
+    //                   "#36A2EE"
+    //               ],
+    //               hoverBackgroundColor: [
+    //                   "#FF6384",
+    //                   "#36A2EB",
+    //                   "#FFCE56",
+    //                   "#FFGGHH",
+    //                   "#36A2EE"
+    //               ]
+    //           }]
+    //         }
+    // });
     /*Pie Chart END*/
     /*Stack Chart Start*/
     var ctxStack = document.getElementById("dataset1StackChart");
