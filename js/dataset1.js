@@ -1,5 +1,80 @@
+Network
+School
+School ID
+Unit
+Grade
+Composite Mean Fall 2008-2009
+Composite Mean Fall 2009-2010
+Composite Mean Fall 2010-2011
+Composite Mean Fall 2011-2012
+Composite Mean Fall 2012-2013
+Composite Mean Spring 2012-2013
+Composite Mean Spring 2013-2014
+Composite No. Tested Fall 2008-2009
+Composite No. Tested Fall 2009-2010
+Composite No. Tested Fall 2010-2011
+Composite No. Tested Fall 2011-2012
+Composite No. Tested Fall 2012-2013
+Composite No. Tested Spring 2012-2013
+Composite No. Tested Spring 2013-2014
+English Mean Fall 2008-2009
+English Mean Fall 2009-2010
+English Mean Fall 2010-2011
+English Mean Fall 2011-2012
+English Mean Fall 2012-2013
+English Mean Spring 2012-2013
+English Mean Spring 2013-2014
+English No. Tested Fall 2008-2009
+English No. Tested Fall 2009-2010
+English No. Tested Fall 2010-2011
+English No. Tested Fall 2011-2012
+English No. Tested Fall 2012-2013
+English No. Tested Spring 2012-2013
+English No. Tested Spring 2013-2014
+Maths Mean Fall 2008-2009
+Maths Mean Fall 2009-2010
+Maths Mean Fall 2010-2011
+Maths Mean Fall 2011-2012
+Maths Mean Fall 2012-2013
+Maths Mean Spring 2012-2013
+Maths Mean Spring 2013-2014
+Maths No. Tested Fall 2008-2009
+Maths No. Tested Fall 2009-2010
+Maths No. Tested Fall 2010-2011
+Maths No. Tested Fall 2011-2012
+Maths No. Tested Fall 2012-2013
+Maths No. Tested Spring 2012-2013
+Maths No. Tested Spring 2013-2014
+Reading Mean Fall 2008-2009
+Reading Mean Fall 2009-2010
+Reading Mean Fall 2010-2011
+Reading Mean Fall 2011-2012
+Reading Mean Fall 2012-2013
+Reading Mean Spring 2012-2013
+Reading Mean Spring 2013-2014
+Reading No. Tested Fall 2008-2009
+Reading No. Tested Fall 2009-2010
+Reading No. Tested Fall 2010-2011
+Reading No. Tested Fall 2011-2012
+Reading No. Tested Fall 2012-2013
+Reading No. Tested Spring 2012-2013
+Reading No. Tested Spring 2013-2014
+Science Mean Fall 2008-2009
+Science Mean Fall 2009-2010
+Science Mean Fall 2010-2011
+Science Mean Fall 2011-2012
+Science Mean Fall 2012-2013
+Science Mean Spring 2012-2013
+Science Mean Spring 2013-2014
+Science No. Tested Fall 2008-2009
+Science No. Tested Fall 2009-2010
+Science No. Tested Fall 2010-2011
+Science No. Tested Fall 2011-2012
+Science No. Tested Fall 2012-2013
+Science No. Tested Spring 2012-2013
+Science No. Tested Spring 2013-2014
 
- rederDataset4(datasetName, parentDiv) {
+ rederDataset5(datasetName, parentDiv) {
     DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
         df => {
           //chart()
@@ -17,7 +92,7 @@
              								 '2011-2012 COLLEGE AND CAREER READINESS GRADE','2011-2012 ADDITIONAL CREDIT',
              								 '2010-11 PROGRESS REPORT GRADE','2009-10 PROGRESS REPORT GRADE');
 
-                dataset4Data = selectColumns.toCollection();
+                dataset5Data = selectColumns.toCollection();
                  //console.log(test);
                  var thead = '<tr>'+
                  				'<th>DBN</th><th>DISTRICT</th><th>SCHOOL</th><th>PRINCIPAL</th>'+
@@ -34,29 +109,29 @@
                   $("#"+parentDiv+"Table thead").html(thead);
                   var tbody = $("#"+parentDiv+"Table tbody");
 
-            for ( var i = 0; i < dataset4Data.length; i++) {
+            for ( var i = 0; i < dataset5Data.length; i++) {
               var content = '<tr>'+
-                              '<td>'+dataset4Data[i]["DBN"]+'</td>'+
-                              '<td>'+dataset4Data[i]["DISTRICT"]+'</td>'+
-                              '<td>'+dataset4Data[i]["SCHOOL"]+'</td>'+
-                              '<td>'+dataset4Data[i]["PRINCIPAL"]+'</td>'+
-                              '<td>'+dataset4Data[i]["PROGRESS REPORT TYPE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["SCHOOL LEVEL"]+'</td>'+
-                              '<td>'+dataset4Data[i]["PEER INDEX"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-2012 OVERALL GRADE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-2012 OVERALL SCORE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-12 OVERALL PERCENTILE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-2012 PROGRESS CATEGORY SCORE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-2012 PROGRESS GRADE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-2012 PERFORMANCE CATEGORY SCORE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-2012 PERFORMANCE GRADE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-2012 ENVIRONMENT CATEGORY SCORE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-2012 ENVIRONMENT GRADE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-2012 COLLEGE AND CAREER READINESS SCORE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-2012 COLLEGE AND CAREER READINESS GRADE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2011-2012 ADDITIONAL CREDIT"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2010-11 PROGRESS REPORT GRADE"]+'</td>'+
-                              '<td>'+dataset4Data[i]["2009-10 PROGRESS REPORT GRADE"]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
+                              '<td>'+dataset5Data[i][""]+'</td>'+
                             '</tr>';
               $(tbody).append(content);
             }
@@ -66,82 +141,6 @@
     });
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-DBN
-DISTRICT
-SCHOOL
-PRINCIPAL
-PROGRESS REPORT TYPE
-SCHOOL LEVEL
-PEER INDEX
-2011-2012 OVERALL GRADE
-2011-2012 OVERALL SCORE
-2011-12 OVERALL PERCENTILE
-2011-2012 PROGRESS CATEGORY SCORE
-2011-2012 PROGRESS GRADE
-2011-2012 PERFORMANCE CATEGORY SCORE
-2011-2012 PERFORMANCE GRADE
-2011-2012 ENVIRONMENT CATEGORY SCORE
-2011-2012 ENVIRONMENT GRADE
-2011-2012 COLLEGE AND CAREER READINESS SCORE
-2011-2012 COLLEGE AND CAREER READINESS GRADE
-2011-2012 ADDITIONAL CREDIT
-2010-11 PROGRESS REPORT GRADE
-2009-10 PROGRESS REPORT GRADE
-
-
-
-
-"School ID"
-"School Name"
-"Street Address"	
-"City"	
-"State"	
-"ZIP"	
-"Phone Number"	
-"Website"	
-"Blue Ribbon Award"	
-"CPS Performance Policy Level"	
-"CPS Performance Policy Status"	
-"Probation Length"	
-"Overall Rating"	
-"Student Response Rate"	
-"Teacher Response Rate"	
-"Involved Family"	
-"Supportive Environment"	
-"Ambitious Instruction"	
-"Effective Leaders"	
-"Collaborative Teachers"	
-"Safety"	
-"School Community"	
-"Parent-Teacher Partnership"	
-"Quality of Facilities"	
-"Healthy Schools Certification"	
-"Creative Schools Certification"       
-"College Enrollment Rate Percentage 2013"	
-"College Enrollment Rate Percentage 2012"	
-"College Persistence Rate Percentage 2013"	
-"College Persistence Rate Percentage 2012"	
-"Student Attendance Percentage 2013"	
-"Student Attendance Percentage 2012"	
-"One-Year DropOut Rate Percentage 2013"	
-"One-Year DropOut Rate Percentage 2012"	
-"X Coordinate"	
-"Y Coordinate"	
-"Longitude"	
-"Latitude"	
-"Location"
 
 
 
