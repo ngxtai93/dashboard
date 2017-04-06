@@ -350,6 +350,9 @@
         getLineChartData.plotLinechart();
         var getPieChartData = new PieChart('Ch_PS_11-12');
         getPieChartData.plotPiechart();
+        var getDoughnutChartData = new DoughnutChart('Ch_PS_11-12');
+        getDoughnutChartData.plotDoughnutchart();
+
         $("#collapseOne").addClass("in");
 
       });
@@ -551,32 +554,32 @@
     });
     /*Stack Chart End*/
     /*Dougnut Chart Start*/
-    var ctxDoughnut = document.getElementById("dataset1DoughnutChart");
-    var myDoughnutChart = new Chart(ctxDoughnut, {
-      type: 'doughnut',
-      data: {
-        labels: [
-            "Red",
-            "Blue",
-            "Yellow"
-        ],
-        datasets: [
-            {
-                data: [300, 50, 100],
-                backgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ],
-                hoverBackgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56"
-                ]
-            }]
-          }
-    });
-    /*Dougnut Chart End*/
+    // var ctxDoughnut = document.getElementById("dataset1DoughnutChart");
+    // var myDoughnutChart = new Chart(ctxDoughnut, {
+    //   type: 'doughnut',
+    //   data: {
+    //     labels: [
+    //         "Red",
+    //         "Blue",
+    //         "Yellow"
+    //     ],
+    //     datasets: [
+    //         {
+    //             data: [300, 50, 100],
+    //             backgroundColor: [
+    //                 "#FF6384",
+    //                 "#36A2EB",
+    //                 "#FFCE56"
+    //             ],
+    //             hoverBackgroundColor: [
+    //                 "#FF6384",
+    //                 "#36A2EB",
+    //                 "#FFCE56"
+    //             ]
+    //         }]
+    //       }
+    // });
+    // /*Dougnut Chart End*/
   </script>
     <script type="text/javascript">
         $(document).ready(function () {});

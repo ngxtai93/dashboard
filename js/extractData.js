@@ -22,7 +22,7 @@
 var dataset1Data, dataset2Data, dataset3Data, dataset4Data, dataset5Data;
 //var chartVar;
 var DataFrame;
-var getData, getPieData;
+var getData, getPieData,getDoughnutData;
 class Datasets {
     constructor() {
         DataFrame = dfjs.DataFrame;
@@ -439,36 +439,36 @@ class renderDatasets {
                         '<th>Composite Mean Fall 2012-2013</th><th>Composite Mean Spring 2012-2013</th>'+
                         '<th>Composite Mean Spring 2013-2014</th><th>Composite No. Tested Fall 2008-2009</th>'+
                         '<th>Composite No. Tested Fall 2009-2010</th><th>Composite No. Tested Fall 2010-2011</th>'+
-                '<th>Composite No. Tested Fall 2011-2012</th><th>Composite No. Tested Fall 2012-2013</th>'+
-                '<th>Composite No. Tested Spring 2012-2013</th><th>Composite No. Tested Spring 2013-2014</th>'+
-                '<th>English Mean Fall 2008-2009</th><th>English Mean Fall 2009-2010</th>'+
-                '<th>English Mean Fall 2010-2011</th><th>English Mean Fall 2011-2012</th>'+
-                '<th>English Mean Fall 2012-2013</th><th>English Mean Spring 2012-2013</th>'+
-                '<th>English Mean Spring 2013-2014</th><th>English No. Tested Fall 2008-2009</th>'+
-                '<th>English No. Tested Fall 2009-2010</th><th>English No. Tested Fall 2010-2011</th>'+
-                '<th>English No. Tested Fall 2011-2012</th><th>English No. Tested Fall 2012-2013</th>'+
-                '<th>English No. Tested Spring 2012-2013</th><th>English No. Tested Spring 2013-2014</th>'+
-                '<th>Maths Mean Fall 2008-2009</th><th>Maths Mean Fall 2009-2010</th>'+
-                '<th>Maths Mean Fall 2010-2011</th><th>Maths Mean Fall 2011-2012</th>'+
-                '<th>Maths Mean Fall 2012-2013</th><th>Maths Mean Spring 2012-2013</th>'+
-                '<th>Maths Mean Spring 2013-2014</th><th>Maths No. Tested Fall 2008-2009</th>'+
-                '<th>Maths No. Tested Fall 2009-2010</th><th>Maths No. Tested Fall 2010-2011</th>'+
-                '<th>Maths No. Tested Fall 2011-2012</th><th>Maths No. Tested Fall 2012-2013</th>'+
-                '<th>Maths No. Tested Spring 2012-2013</th><th>Maths No. Tested Spring 2013-2014</th>'+
-                '<th>Reading Mean Fall 2008-2009</th><th>Reading Mean Fall 2009-2010</th>'+
-                '<th>Reading Mean Fall 2010-2011</th><th>Reading Mean Fall 2011-2012</th>'+
-                '<th>Reading Mean Fall 2012-2013</th><th>Reading Mean Spring 2012-2013</th>'+
-                '<th>Reading Mean Spring 2013-2014</th><th>Reading No. Tested Fall 2008-2009</th>'+
-                '<th>Reading No. Tested Fall 2009-2010</th><th>Reading No. Tested Fall 2010-2011</th>'+
-                '<th>Reading No. Tested Fall 2011-2012</th><th>Reading No. Tested Fall 2012-2013</th>'+
-                '<th>Reading No. Tested Spring 2012-2013</th><th>Reading No. Tested Spring 2013-2014</th>'+
-                '<th>Science Mean Fall 2008-2009</th><th>Science Mean Fall 2009-2010</th>'+
-                '<th>Science Mean Fall 2010-2011</th><th>Science Mean Fall 2011-2012</th>'+
-                '<th>Science Mean Fall 2012-2013</th><th>Science Mean Spring 2012-2013</th>'+
-                '<th>Science Mean Spring 2013-2014</th><th>Science No. Tested Fall 2008-2009</th>'+
-                '<th>Science No. Tested Fall 2009-2010</th><th>Science No. Tested Fall 2010-2011</th>'+
-                '<th>Science No. Tested Fall 2011-2012</th><th>Science No. Tested Fall 2012-2013</th>'+
-                '<th>Science No. Tested Spring 2012-2013</th><th>Science No. Tested Spring 2013-2014</th>';
+                        '<th>Composite No. Tested Fall 2011-2012</th><th>Composite No. Tested Fall 2012-2013</th>'+
+                        '<th>Composite No. Tested Spring 2012-2013</th><th>Composite No. Tested Spring 2013-2014</th>'+
+                        '<th>English Mean Fall 2008-2009</th><th>English Mean Fall 2009-2010</th>'+
+                        '<th>English Mean Fall 2010-2011</th><th>English Mean Fall 2011-2012</th>'+
+                        '<th>English Mean Fall 2012-2013</th><th>English Mean Spring 2012-2013</th>'+
+                        '<th>English Mean Spring 2013-2014</th><th>English No. Tested Fall 2008-2009</th>'+
+                        '<th>English No. Tested Fall 2009-2010</th><th>English No. Tested Fall 2010-2011</th>'+
+                        '<th>English No. Tested Fall 2011-2012</th><th>English No. Tested Fall 2012-2013</th>'+
+                        '<th>English No. Tested Spring 2012-2013</th><th>English No. Tested Spring 2013-2014</th>'+
+                        '<th>Maths Mean Fall 2008-2009</th><th>Maths Mean Fall 2009-2010</th>'+
+                        '<th>Maths Mean Fall 2010-2011</th><th>Maths Mean Fall 2011-2012</th>'+
+                        '<th>Maths Mean Fall 2012-2013</th><th>Maths Mean Spring 2012-2013</th>'+
+                        '<th>Maths Mean Spring 2013-2014</th><th>Maths No. Tested Fall 2008-2009</th>'+
+                        '<th>Maths No. Tested Fall 2009-2010</th><th>Maths No. Tested Fall 2010-2011</th>'+
+                        '<th>Maths No. Tested Fall 2011-2012</th><th>Maths No. Tested Fall 2012-2013</th>'+
+                        '<th>Maths No. Tested Spring 2012-2013</th><th>Maths No. Tested Spring 2013-2014</th>'+
+                        '<th>Reading Mean Fall 2008-2009</th><th>Reading Mean Fall 2009-2010</th>'+
+                        '<th>Reading Mean Fall 2010-2011</th><th>Reading Mean Fall 2011-2012</th>'+
+                        '<th>Reading Mean Fall 2012-2013</th><th>Reading Mean Spring 2012-2013</th>'+
+                        '<th>Reading Mean Spring 2013-2014</th><th>Reading No. Tested Fall 2008-2009</th>'+
+                        '<th>Reading No. Tested Fall 2009-2010</th><th>Reading No. Tested Fall 2010-2011</th>'+
+                        '<th>Reading No. Tested Fall 2011-2012</th><th>Reading No. Tested Fall 2012-2013</th>'+
+                        '<th>Reading No. Tested Spring 2012-2013</th><th>Reading No. Tested Spring 2013-2014</th>'+
+                        '<th>Science Mean Fall 2008-2009</th><th>Science Mean Fall 2009-2010</th>'+
+                        '<th>Science Mean Fall 2010-2011</th><th>Science Mean Fall 2011-2012</th>'+
+                        '<th>Science Mean Fall 2012-2013</th><th>Science Mean Spring 2012-2013</th>'+
+                        '<th>Science Mean Spring 2013-2014</th><th>Science No. Tested Fall 2008-2009</th>'+
+                        '<th>Science No. Tested Fall 2009-2010</th><th>Science No. Tested Fall 2010-2011</th>'+
+                        '<th>Science No. Tested Fall 2011-2012</th><th>Science No. Tested Fall 2012-2013</th>'+
+                        '<th>Science No. Tested Spring 2012-2013</th><th>Science No. Tested Spring 2013-2014</th>';
                                '</tr>';
                   $("#"+parentDiv+"Table thead").html(thead);
                   var tbody = $("#"+parentDiv+"Table tbody");
@@ -606,7 +606,34 @@ class PlotChart {
       });
     }
 
+    doughnutChartData (datasetName) {
+      var CollaborativeData;
+      console.log(this.datasetName + "In DoughnutChart function");
 
+      DataFrame.fromCSV('datasets/' + this.datasetName + '.csv').then(
+          df => {
+              var NORTH_NORTHWEST_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'NORTH-NORTHWEST SIDE COLLABORATIVE').count();
+              var SOUTH_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'SOUTH SIDE COLLABORATIVE').count();
+              var SOUTHWEST_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'SOUTHWEST SIDE COLLABORATIVE').count();
+              var FAR_SOUTH_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'FAR SOUTH SIDE COLLABORATIVE').count();
+              var WEST_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'WEST SIDE COLLABORATIVE').count();
+              CollaborativeData = {
+                'NORTH-NORTHWEST SIDE COLLABORATIVE' : NORTH_NORTHWEST_SIDE_COLLABORATIVE,
+                'SOUTH SIDE COLLABORATIVE' : SOUTH_SIDE_COLLABORATIVE,
+                'SOUTHWEST SIDE COLLABORATIVE' : SOUTHWEST_SIDE_COLLABORATIVE,
+                'FAR SOUTH SIDE COLLABORATIVE' : FAR_SOUTH_SIDE_COLLABORATIVE,
+                'WEST SIDE COLLABORATIVE' : WEST_SIDE_COLLABORATIVE
+              }
+              getDoughnutData = CollaborativeData;
+              return false;
+              //getData = groupedDF.toCollection();
+              //console.log(getData);
+
+          }
+      ).catch(err => {
+          console.log(err);
+      });
+    }
 }
 class BarChart extends PlotChart {
     constructor(datasetName) {
@@ -759,6 +786,62 @@ class PieChart extends PlotChart {
             var ctxPie = document.getElementById("dataset1PieChart");
             var myPieChart = new Chart(ctxPie,{
                 type: 'pie',
+                data: {
+                  labels: labelArray,
+                  datasets: [
+                      {
+                          data: dataArray,
+                          backgroundColor: backgroundColorArray,
+                          hoverBackgroundColor: hoverBackgroundColor
+                      }]
+                    }
+            });
+            // /*Pie Chart END*/
+        }, 2000);
+
+    }
+
+
+    
+}
+class DoughnutChart extends PlotChart {
+    constructor(datasetName) {
+        super(datasetName);
+        this.datasetName = datasetName;
+
+    }
+    plotDoughnutchart() {
+        super.doughnutChartData(this.datasetName);
+        console.log("DoughnutData");
+        console.log(getData);
+        // var getData;
+        // DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
+        //     df => {
+        //       var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
+        //       getData = groupedDF.toCollection();
+        //     }
+        //   ).catch(err => {
+        //       console.log(err);
+        //   });
+        setTimeout(function() {
+            var labelArray = [];
+            var dataArray = [];
+            var backgroundColorArray = [];
+            var hoverBackgroundColor = [];
+            for (var i in getDoughnutData) {
+                labelArray.push(i);
+                dataArray.push(getDoughnutData[i]);
+                var color1 = Math.ceil(Math.random() * 255);
+                var color2 = Math.ceil(Math.random() * 255);
+                var color3 = Math.ceil(Math.random() * 255);
+                //console.log(color1, color2, color3);
+                backgroundColorArray.push("rgba(" + color1 + "," + color2 + "," + color3 + ")");
+                hoverBackgroundColor.push("rgba(" + color1 + "," + color2 + "," + color3 +")");
+            }
+            /*Pie Chart Start*/
+            var ctxDoughnut = document.getElementById("dataset1DoughnutChart");
+            var myDoughnutChart = new Chart(ctxDoughnut,{
+                type: 'doughnut',
                 data: {
                   labels: labelArray,
                   datasets: [
