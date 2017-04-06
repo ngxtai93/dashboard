@@ -262,7 +262,7 @@ class BarChart extends PlotChart {
           var color2 = Math.ceil(Math.random() * 255);
           var color3 = Math.ceil(Math.random() * 255);
           //console.log(color1, color2, color3);
-          backgroundColorArray.push("rgba("+ color1 +","+ color2 +","+ color3 +","+Math.random()+")");
+          backgroundColorArray.push("rgba("+ color1 +","+ color2 +","+ color3 +","+0.6+")");
           borderColorArray.push("rgba("+ color1 +","+ color2 +","+ color3 +","+1+")");
         }
         var ctxBar = document.getElementById('dataset1BarChart');

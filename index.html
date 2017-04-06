@@ -34,8 +34,8 @@
     <!-- Progress Bar End-->
     <div class="wrapper clearfix">
         <!-- Spinner start-->
-        <div class="overlay page-spinner" style="display: none;"></div>
-        <div class="overlay1 page-spinner" style="display: none;">
+        <div class="overlay page-spinner" style=""></div>
+        <div class="overlay1 page-spinner" style="">
                 <div class="spinner"></div>
         </div>
         <!-- Spinner end-->
@@ -156,7 +156,7 @@
                                       1. Bar Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
                                       </h4>
                                   </div>
-                                  <div id="collapseOne" class="panel-collapse collapse in">
+                                  <div id="collapseOne" class="panel-collapse collapse">
                                       <div class="panel-body">
                                           <canvas id="dataset1BarChart" width="400" height="auto"></canvas>
                                       </div>
@@ -337,34 +337,59 @@
       });
     </script>
     <script type="text/javascript">
-      $("#PlotChart1").on('click', function () {
+      $("#PlotChart1").on('click', function (e) {
+        e.preventDefault();
         var getBarChartData = new BarChart('Ch_PS_11-12');
         getBarChartData.plotBarchart();
+        $("#collapseOne").addClass("in");
       });
     </script>
     <script type="text/javascript">
+      //Show Page spinner
+      $(document).ready( function () {
+        //$(".page-spinner").show();
+      });
         //var DataFrame = dfjs.DataFrame;
         //const df = new DataFrame(data, columns);
         //DataFrame.fromCSV('datasets/Chicago_Public_Schools___High_School_Progress_Report_Card__2012-2013_.csv').then(df => df);
-        $(".select-datasets-tab a").on('click', function () {
-          var datasetName = $(this).attr("dataset-name");
-          var parentDiv = $(this).attr("dataset-id");
-          var renderD;
-          //console.log(datasetName, parentDiv);
-          if ($(this).attr("dataset-id") == "dataset1"){
-            renderD = new Dataset1(datasetName, parentDiv);
-          } else if ($(this).attr("dataset-id") == "dataset2"){
-          //setTimeout( function () {
-            renderD = new Dataset2(datasetName, parentDiv);
-          //}, 2000);
+        // $(".select-datasets-tab a").on('click', function () {
+        //   var datasetName = $(this).attr("dataset-name");
+        //   var parentDiv = $(this).attr("dataset-id");
+        //   var renderD;
+        //   //console.log(datasetName, parentDiv);
+        //   if ($(this).attr("dataset-id") == "dataset1"){
+        //     renderD = new Dataset1(datasetName, parentDiv);
+        //   } else if ($(this).attr("dataset-id") == "dataset2"){
+        //   //setTimeout( function () {
+        //     renderD = new Dataset2(datasetName, parentDiv);
+        //   //}, 2000);
+        //
+        //   } else if ($(this).attr("dataset-id") == "dataset3"){
+        //     renderD = new Dataset3(datasetName, parentDiv);
+        //   } else if ($(this).attr("dataset-id") == "dataset4"){
+        //     renderD = new Dataset4(datasetName, parentDiv);
+        //   } else {
+        //     renderD = new Dataset5(datasetName, parentDiv);
+        //   }
+        //
+        // });
+        $(window).on('load', function () {
 
-          } else if ($(this).attr("dataset-id") == "dataset3"){
-            renderD = new Dataset3(datasetName, parentDiv);
-          } else if ($(this).attr("dataset-id") == "dataset4"){
-            renderD = new Dataset4(datasetName, parentDiv);
-          } else {
-            renderD = new Dataset5(datasetName, parentDiv);
-          }
+          //Render dataset1
+          renderD = new Dataset1('Ch_PS_11-12', 'dataset1');
+          //Render dataset2
+          renderD = new Dataset2('Ch_PS_12-13', 'dataset2');
+          //Render dataset3
+          //renderD = new Dataset3('Ch_PS_13-14', 'dataset3');
+          //Render dataset4
+          //renderD = new Dataset4('', 'dataset4');
+          //Render dataset5
+          //renderD = new Dataset5('', 'dataset5');
+          //Hide Page spinner
+          $(".page-spinner").fadeOut();
+          setTimeout( function () {
+
+          },5000);
 
         });
 
