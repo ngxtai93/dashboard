@@ -390,6 +390,10 @@
         $(this).closest(".tab-pane").find(".chart-accordian").children().find("#"+divID[0]).addClass("in");
         var selectedDatasetName= new SelectDataset1();
         selectedDatasetName.createChart(typeOfChart, datasetName, divID[1]);
+        //$(document).scrollTo(.closest(".tab-pane").find(".chart-accordian").children().find("#"+divID[0]).parent());
+        setTimeout(function () {
+          $(".page-spinner").hide();
+        },2000);
       });
       function getReltedDivID (typeOfChart) {
         var divID =[];

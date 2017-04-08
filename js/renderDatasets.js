@@ -5,13 +5,13 @@ $(window).on('load', function () {
     //Render dataset1
     renderD = new Dataset1('Ch_PS_11-12', 'dataset1');
     //Render dataset2
-    // renderD = new Dataset2('Ch_PS_12-13', 'dataset2');
-    // //Render dataset3
-    // renderD = new Dataset3('Ch_PS_13-14', 'dataset3');
-    // //Render dataset4
-    // renderD = new Dataset4('All_Progress_11-12', 'dataset4');
-    // //Render dataset5
-    // renderD = new Dataset5('All_School_13-14', 'dataset5');
+    renderD = new Dataset2('Ch_PS_12-13', 'dataset2');
+    //Render dataset3
+    renderD = new Dataset3('Ch_PS_13-14', 'dataset3');
+    //Render dataset4
+    renderD = new Dataset4('All_Progress_11-12', 'dataset4');
+    //Render dataset5
+    renderD = new Dataset5('All_School_13-14', 'dataset5');
     //Hide Page spinner
     $(".page-spinner").fadeOut();
 

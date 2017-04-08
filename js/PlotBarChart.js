@@ -73,9 +73,7 @@ class Bar extends ChartType {
                   }
               }
           });
-      }, 2000, function () {
-        $(".page-spinner").hide();
-      });
+      }, 2000);
 
   }
 }

@@ -76,9 +76,7 @@ class Pie extends ChartType {
                   }
           });
           // /*Pie Chart END*/
-      }, 2000, function () {
-        $(".page-spinner").hide();
-      });
+      }, 2000);
 
   }
 }
