@@ -1,5 +1,5 @@
 class Line extends ChartType {
-  constructor( datasetName) {
+  constructor( datasetName, divID) {
     super({
       datasetName: datasetName,
       divID: divID
@@ -22,6 +22,7 @@ class Line extends ChartType {
     }
   displayChart() {
     this.sendData(this.datasetName)
+    divTestID = this.divID;
       //super.sendData(this.datasetName); //Need to Change Later
 
       setTimeout( function () {
@@ -33,7 +34,7 @@ class Line extends ChartType {
           labelArray.push(getData[i].ZIP);
           dataArray.push(getData[i].Count);
       }
-      var ctxLine = $("#"+divID);
+      var ctxLine = document.getElementById(divTestID);;
       var lineChart = new Chart(ctxLine, {
           type: 'line',
           data: {
@@ -62,7 +63,9 @@ class Line extends ChartType {
               }]
           }
       });
-      }, 2000);
+    }, 2000, function () {
+      $(".page-spinner").hide();
+    });
 
   }
 }

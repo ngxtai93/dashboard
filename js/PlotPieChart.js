@@ -1,5 +1,5 @@
 class Pie extends ChartType {
-  constructor( datasetName) {
+  constructor( datasetName, divID) {
     super({
       datasetName: datasetName,
       divID: divID
@@ -35,6 +35,7 @@ class Pie extends ChartType {
   }
   displayChart() {
       this.pieChartData(this.datasetName);
+      divTestID = this.divID;
 
       // var getData;
       // DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
@@ -61,7 +62,7 @@ class Pie extends ChartType {
               hoverBackgroundColor.push("rgba(" + color1 + "," + color2 + "," + color3 +")");
           }
           /*Pie Chart Start*/
-          var ctxPie = $("#"+divID);
+          var ctxPie = document.getElementById(divTestID);;
           var myPieChart = new Chart(ctxPie,{
               type: 'pie',
               data: {
@@ -75,7 +76,9 @@ class Pie extends ChartType {
                   }
           });
           // /*Pie Chart END*/
-      }, 2000);
+      }, 2000, function () {
+        $(".page-spinner").hide();
+      });
 
   }
 }

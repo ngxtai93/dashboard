@@ -2,7 +2,7 @@ var schoolArray = ["Abraham Lincoln Elementary School", "Ambrose Plamondon Eleme
 
 class Stack extends ChartType {
 
-  constructor( datasetName) {
+  constructor( datasetName, divID) {
     super({
       datasetName: datasetName,
       divID: divID
@@ -40,6 +40,7 @@ class Stack extends ChartType {
   displayChart() {
     //var getstackData;
     this.getstackChartData(this.datasetName);
+    divTestID = this.divID;
     // getstackData = getstackChartData(schoolArray, (result) => {
     //   Res = result;
     // });
@@ -60,7 +61,7 @@ class Stack extends ChartType {
           borderColorArray.push("rgba(" + color1 + "," + color2 + "," + color3 + "," +Math.random()+")");
       }
 
-      var ctxStack = $("#"+divID);
+      var ctxStack = document.getElementById(divTestID);;
       var stackChart = new Chart(ctxStack, {
       type: 'bar',
       data: {
@@ -112,7 +113,9 @@ class Stack extends ChartType {
           }
         });
 
-    }, 2000);
+    }, 2000, function () {
+      $(".page-spinner").hide();
+    });
 
   }
 }

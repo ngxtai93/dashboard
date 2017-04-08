@@ -1,5 +1,5 @@
 class Doughnut extends ChartType {
-  constructor( datasetName) {
+  constructor( datasetName, divID) {
     super({
       datasetName: datasetName,
       divID: divID
@@ -35,6 +35,7 @@ class Doughnut extends ChartType {
   }
   displayChart() {
         this.doughnutChartData(this.datasetName);
+        divTestID = this.divID;
         console.log("DoughnutData");
 
         // var getData;
@@ -62,7 +63,7 @@ class Doughnut extends ChartType {
                 hoverBackgroundColor.push("rgba(" + color1 + "," + color2 + "," + color3 +")");
             }
             /*Pie Chart Start*/
-            var ctxDoughnut = $("#"+divID);
+            var ctxDoughnut = document.getElementById(divTestID);
             var myDoughnutChart = new Chart(ctxDoughnut,{
                 type: 'doughnut',
                 data: {
@@ -76,7 +77,9 @@ class Doughnut extends ChartType {
                     }
             });
             // /*Pie Chart END*/
-        }, 2000);
+        }, 2000, function () {
+          $(".page-spinner").hide();
+        });
 
     }
 }

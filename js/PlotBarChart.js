@@ -22,7 +22,7 @@ class Bar extends ChartType {
     }
   displayChart() {
       this.sendData(this.datasetName)
-      divID = this.divID;
+      divTestID = this.divID;
       //console.log(getData);
       // var getData;
       // DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
@@ -48,7 +48,9 @@ class Bar extends ChartType {
               backgroundColorArray.push("rgba(" + color1 + "," + color2 + "," + color3 + "," + 0.6 + ")");
               borderColorArray.push("rgba(" + color1 + "," + color2 + "," + color3 + "," + 1 + ")");
           }
-          var ctxBar = document.getElementById('dataset1BarDiv');
+          console.log(divTestID);
+          var ctxBar = document.getElementById(divTestID);
+          console.log(ctxBar);
           var barChart = new Chart(ctxBar, {
               type: 'bar',
               data: {
@@ -71,7 +73,9 @@ class Bar extends ChartType {
                   }
               }
           });
-      }, 2000);
+      }, 2000, function () {
+        $(".page-spinner").hide();
+      });
 
   }
 }

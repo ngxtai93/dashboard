@@ -164,13 +164,13 @@
                         <!-- Charts Div Starts-->
                         <div class="bs-example">
                           <div class="panel-group chart-accordian" id="accordion">
-                              <div class="panel panel-default chart-div" style="">
+                              <div class="panel panel-default chart-div" style="display:none;">
                                   <div class="panel-heading">
                                       <h4 class="panel-title"data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
                                       Bar Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
                                       </h4>
                                   </div>
-                                  <div id="dataset1BarDiv" class="panel-collapse collapse in">
+                                  <div id="dataset1BarDiv" class="panel-collapse collapse">
                                       <div class="panel-body">
                                           <h6 class="text-center"><strong>Number of Schools / Zip code</strong></h6>
                                           <canvas id="dataset1BarChart" width="400" height="auto"></canvas>
@@ -384,24 +384,30 @@
         var datasetName = $(this).attr("dataset-name");
         var typeOfChart = $(".selectChart").val();
         var divID = getReltedDivID(typeOfChart);
-
-        //$(this).closest(".tab-pane").find(".chart-accordian").children().fadeOut();
-        //$(this).closest(".tab-pane").find(".chart-accordian").children().find("#"+divID).parent().show();
+        $(".page-spinner").show();
+        $(this).closest(".tab-pane").find(".chart-accordian").children().hide();
+        $(this).closest(".tab-pane").find(".chart-accordian").children().find("#"+divID[0]).parent().show();
+        $(this).closest(".tab-pane").find(".chart-accordian").children().find("#"+divID[0]).addClass("in");
         var selectedDatasetName= new SelectDataset1();
-        selectedDatasetName.createChart(typeOfChart, datasetName, divID);
+        selectedDatasetName.createChart(typeOfChart, datasetName, divID[1]);
       });
       function getReltedDivID (typeOfChart) {
-        var divID;
+        var divID =[];
         if ( typeOfChart == 'Line' ) {
-          divID = 'dataset1LineDiv';
+          divID.push('dataset1LineDiv');
+          divID.push('dataset1LineChart');
         } else if (  typeOfChart == 'Bar' ) {
-          divID = 'dataset1BarDiv';
+          divID.push('dataset1BarDiv');
+          divID.push('dataset1BarChart');
         } else if (  typeOfChart == 'Stack' ) {
-          divID = 'dataset1StackChartDiv';
+          divID.push('dataset1StackDiv');
+          divID.push('dataset1StackChart');
         } else if (  typeOfChart == 'Pie' ) {
-          divID = 'dataset1PieChartDiv';
+          divID.push('dataset1PieDiv');
+          divID.push('dataset1PieChart');
         } else if (  typeOfChart == 'Doughnut' ) {
-          divID = 'dataset1DoughnutChartDiv';
+          divID.push('dataset1DoughnutDiv');
+          divID.push('dataset1DoughnutChart');
         }
         return divID;
       }
