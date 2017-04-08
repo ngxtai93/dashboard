@@ -89,6 +89,18 @@
                         <form class="form-horizontal">
                           <fieldset>
                             <div class="form-group">
+                              <label for="select" class="col-lg-2 control-label">Select Chart</label>
+                              <div class="col-lg-10">
+                                <select class="form-control selectChart" id="">
+                                  <option value="Bar">Bar Chart</option>
+                                  <option value="Line">Line Chart</option>
+                                  <option value="Stack">Stack Chart</option>
+                                  <option value="Pie">Pie Chart</option>
+                                  <option value="Doughnut">Doughnut Chart</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
                               <label for="select" class="col-lg-2 control-label">Filter1</label>
                               <div class="col-lg-10">
                                 <select class="form-control" id="select">
@@ -151,27 +163,27 @@
                         </form>
                         <!-- Charts Div Starts-->
                         <div class="bs-example">
-                          <div class="panel-group" id="accordion">
-                              <div class="panel panel-default">
+                          <div class="panel-group chart-accordian" id="accordion">
+                              <div class="panel panel-default chart-div" style="">
                                   <div class="panel-heading">
                                       <h4 class="panel-title"data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
-                                      1. Bar Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                                      Bar Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
                                       </h4>
                                   </div>
-                                  <div id="collapseOne" class="panel-collapse collapse">
+                                  <div id="dataset1BarDiv" class="panel-collapse collapse in">
                                       <div class="panel-body">
                                           <h6 class="text-center"><strong>Number of Schools / Zip code</strong></h6>
                                           <canvas id="dataset1BarChart" width="400" height="auto"></canvas>
                                       </div>
                                   </div>
                               </div>
-                              <div class="panel panel-default">
+                              <div class="panel panel-default chart-div" style="display:none;">
                                 <div class="panel-heading">
                                     <h4 class="panel-title"data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
-                                    2. Pie Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                                    Pie Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
                                     </h4>
                                 </div>
-                                  <div id="collapseTwo" class="panel-collapse collapse">
+                                  <div id="dataset1PieDiv" class="panel-collapse collapse in">
                                       <div class="panel-body">
                                           <h6 class="text-center"><strong>School and their Safety</strong></h6>
                                           <canvas id="dataset1PieChart" width="400" height="100"></canvas>
@@ -179,38 +191,38 @@
                                   </div>
                               </div>
 
-                              <div class="panel panel-default">
+                              <div class="panel panel-default chart-div" style="display:none;">
                                 <div class="panel-heading">
                                     <h4 class="panel-title"data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree">
-                                    3. Line Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                                    Line Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
                                     </h4>
                                 </div>
-                                  <div id="collapseThree" class="panel-collapse collapse">
+                                  <div id="dataset1LineDiv" class="panel-collapse collapse in">
                                       <div class="panel-body">
                                         <h6 class="text-center"><strong>Schools / Zip code</strong></h6>
                                           <canvas id="dataset1LineChart" width="400" height="auto"></canvas>
                                       </div>
                                   </div>
                               </div>
-                              <div class="panel panel-default">
+                              <div class="panel panel-default chart-div" style="display:none;">
                                 <div class="panel-heading">
                                     <h4 class="panel-title"data-toggle="collapse" data-parent="#accordion" data-target="#collapseFour">
-                                    4. Stack Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                                    Stack Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
                                     </h4>
                                 </div>
-                                  <div id="collapseFour" class="panel-collapse collapse">
+                                  <div id="dataset1StackDiv" class="panel-collapse collapse in">
                                       <div class="panel-body">
                                           <canvas id="dataset1StackChart" width="400" height="auto"></canvas>
                                       </div>
                                   </div>
                               </div>
-                              <div class="panel panel-default">
+                              <div class="panel panel-default chart-div" style="display:none;">
                                 <div class="panel-heading">
                                     <h4 class="panel-title"data-toggle="collapse" data-parent="#accordion" data-target="#collapseFive">
-                                    5. Doughnut Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
+                                    Doughnut Chart<span class="glyphicon glyphicon-chevron-down pull-right"></span>
                                     </h4>
                                 </div>
-                                  <div id="collapseFive" class="panel-collapse collapse">
+                                  <div id="dataset1DoughnutDiv" class="panel-collapse collapse in">
                                       <div class="panel-body">
                                           <canvas id="dataset1DoughnutChart" width="400" height="100"></canvas>
                                       </div>
@@ -334,8 +346,18 @@
     </div>
     <!-- Modal for Confirm Test Submission End -->
     <!-- <script type="text/javascript" src="js/Common.js"></script> -->
+    <script type="text/javascript" src="js/GlobalVariable.js"></script>
     <script type="text/javascript" src="js/renderDatasets.js"></script>
-    <script type="text/javascript" src="js/extractData.js"></script>
+  <!-- <script type="text/javascript" src="js/extractData.js"></script> -->
+    <script type="text/javascript" src="js/ChartType.js"></script>
+    <script type="text/javascript" src="js/PlotBarchart.js"></script>
+    <script type="text/javascript" src="js/PlotLinechart.js"></script>
+    <script type="text/javascript" src="js/PlotStackchart.js"></script>
+    <script type="text/javascript" src="js/PlotPiechart.js"></script>
+    <script type="text/javascript" src="js/PlotDoughnutchart.js"></script>
+    <script type="text/javascript" src="js/Datasets.js"></script>
+    <script type="text/javascript" src="js/SelectDataset1.js"></script>
+
     <script type="text/javascript">
       $(window).on('load', function () {
         var test = new Datasets();
@@ -344,228 +366,51 @@
     <script type="text/javascript">
       $("#PlotChart1").on('click', function (e) {
         e.preventDefault();
+        // var datasetName = $(this).attr("dataset-name");
+        // var getBarChartData = new BarChart(datasetName);
+        // getBarChartData.plotBarchart();
+        // var getLineChartData = new LineChart(datasetName);
+        // getLineChartData.plotLinechart();
+        // var getPieChartData = new PieChart(datasetName);
+        // getPieChartData.plotPiechart();
+        // var getDoughnutChartData = new DoughnutChart(datasetName);
+        // getDoughnutChartData.plotDoughnutchart();
+        //
+        // var getStackChartData = new StackChart('Ch_PS_11-12');
+        // var schoolArray = ["Abraham Lincoln Elementary School", "Ambrose Plamondon Elementary School", "Andrew Carnegie Elementary School", "Bret Harte Elementary School", "Carl Schurz High School", "Carter G Woodson South Elementary School"];
+        // getStackChartData.plotStackchart(schoolArray);
+
+        //$("#collapseOne").addClass("in");
         var datasetName = $(this).attr("dataset-name");
-        var getBarChartData = new BarChart(datasetName);
-        getBarChartData.plotBarchart();
-        var getLineChartData = new LineChart(datasetName);
-        getLineChartData.plotLinechart();
-        var getPieChartData = new PieChart(datasetName);
-        getPieChartData.plotPiechart();
-        var getDoughnutChartData = new DoughnutChart(datasetName);
-        getDoughnutChartData.plotDoughnutchart();
+        var typeOfChart = $(".selectChart").val();
+        var divID = getReltedDivID(typeOfChart);
 
-        var getStackChartData = new StackChart('Ch_PS_11-12');
-        var schoolArray = ["Abraham Lincoln Elementary School", "Ambrose Plamondon Elementary School", "Andrew Carnegie Elementary School", "Bret Harte Elementary School", "Carl Schurz High School", "Carter G Woodson South Elementary School"];
-        getStackChartData.plotStackchart(schoolArray);
-        $("#collapseOne").addClass("in");
-
+        //$(this).closest(".tab-pane").find(".chart-accordian").children().fadeOut();
+        //$(this).closest(".tab-pane").find(".chart-accordian").children().find("#"+divID).parent().show();
+        var selectedDatasetName= new SelectDataset1();
+        selectedDatasetName.createChart(typeOfChart, datasetName, divID);
       });
+      function getReltedDivID (typeOfChart) {
+        var divID;
+        if ( typeOfChart == 'Line' ) {
+          divID = 'dataset1LineDiv';
+        } else if (  typeOfChart == 'Bar' ) {
+          divID = 'dataset1BarDiv';
+        } else if (  typeOfChart == 'Stack' ) {
+          divID = 'dataset1StackChartDiv';
+        } else if (  typeOfChart == 'Pie' ) {
+          divID = 'dataset1PieChartDiv';
+        } else if (  typeOfChart == 'Doughnut' ) {
+          divID = 'dataset1DoughnutChartDiv';
+        }
+        return divID;
+      }
+
+    //   var oPizzaStore = new NewYorkPizzaStore();
+    // oPizzaStore.orderPizza("pepperoni");
+
     </script>
-    <script>
-    /*Bar Chart Data Start*/
-    // var ctxBar = document.getElementById("dataset1BarChart");
-    // var barChart = new Chart(ctxBar, {
-    //   type: 'bar',
-    //   data: {
-    //       labels: ["60616", "60618", "60625", "60630", "60635", "60640"],
-    //       datasets: [{
-    //           label: '# of Schools',
-    //           data: [12, 19, 3, 5, 2, 3],
-    //           backgroundColor: [
-    //               'rgba(255, 99, 132, 0.2)',
-    //               'rgba(54, 162, 235, 0.2)',
-    //               'rgba(255, 206, 86, 0.2)',
-    //               'rgba(75, 192, 192, 0.2)',
-    //               'rgba(153, 102, 255, 0.2)',
-    //               'rgba(255, 159, 64, 0.2)'
-    //           ],
-    //           borderColor: [
-    //               'rgba(255,99,132,1)',
-    //               'rgba(54, 162, 235, 1)',
-    //               'rgba(255, 206, 86, 1)',
-    //               'rgba(75, 192, 192, 1)',
-    //               'rgba(153, 102, 255, 1)',
-    //               'rgba(255, 159, 64, 1)'
-    //           ],
-    //           borderWidth: 1
-    //       }]
-    //   },
-    //   options: {
-    //       scales: {
-    //           yAxes: [{
-    //               ticks: {
-    //                   beginAtZero:true
-    //               }
-    //           }]
-    //       }
-    //   }
-    // });
-    /*Bar Chart End*/
-    /*Line Chart Start*/
-    // var ctxLine = document.getElementById("dataset1LineChart");
-    // var lineChart = new Chart(ctxLine, {
-    //     type: 'line',
-    //     data: {
-    //           labels: ["January", "February", "March", "April", "May", "June", "July"],
-    //         datasets: [
-    //             {
-    //                 label: "My First dataset",
-    //                 fill: false,
-    //                 lineTension: 0.1,
-    //                 backgroundColor: "rgba(75,192,192,0.4)",
-    //                 borderColor: "rgba(75,192,192,1)",
-    //                 borderCapStyle: 'butt',
-    //                 borderDash: [],
-    //                 borderDashOffset: 0.0,
-    //                 borderJoinStyle: 'miter',
-    //                 pointBorderColor: "rgba(75,192,192,1)",
-    //                 pointBackgroundColor: "#fff",
-    //                 pointBorderWidth: 1,
-    //                 pointHoverRadius: 5,
-    //                 pointHoverBackgroundColor: "rgba(75,192,192,1)",
-    //                 pointHoverBorderColor: "rgba(220,220,220,1)",
-    //                 pointHoverBorderWidth: 2,
-    //                 pointRadius: 1,
-    //                 pointHitRadius: 10,
-    //                 data: [65, 59, 80, 81, 56, 55, 40],
-    //                 spanGaps: false,
-    //             }
-    //         ]
-    //     }
-    // });
-    /*Line Chart End*/
-    /*Pie Chart Start*/
-    // var ctxPie = document.getElementById("dataset1PieChart");
-    // var myPieChart = new Chart(ctxPie,{
-    //     type: 'pie',
-    //     data: {
-    //       labels: [
-    //           "Very Strong",
-    //           "Strong",
-    //           "Average",
-    //           "Weak",
-    //           "Very Weak"
-    //       ],
-    //       datasets: [
-    //           {
-    //               data: [300, 50, 100, 20, 150],
-    //               backgroundColor: [
-    //                   "#FF6384",
-    //                   "#36A2EB",
-    //                   "#FFCE56",
-    //                   "#FFGGHH",
-    //                   "#36A2EE"
-    //               ],
-    //               hoverBackgroundColor: [
-    //                   "#FF6384",
-    //                   "#36A2EB",
-    //                   "#FFCE56",
-    //                   "#FFGGHH",
-    //                   "#36A2EE"
-    //               ]
-    //           }]
-    //         }
-    // });
-    /*Pie Chart END*/
-    /*Stack Chart Start*/
-//     var randomScalingFactor = function() {
-//         return Math.round(Math.random() * 100)
-//     };
-//     var ctxStack = document.getElementById("dataset1StackChart");
-//     var stackChart = new Chart(ctxStack, {
-//     type: 'bar',
-//     data: {
-//         labels: ["Abraham Lincoln Elementary School", "Ambrose Plamondon Elementary School", "Andrew Carnegie Elementary School", "Bret Harte Elementary School", "Carl Schurz High School", "Carter G Woodson South Elementary School"],
-//         datasets: [{
-//             label: 'Average Student Attendance %',
-//             data: [10, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)',
-//                 'rgba(75, 192, 192, 0.2)',
-//                 'rgba(153, 102, 255, 0.2)',
-//                 'rgba(255, 159, 64, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255,99,132,1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)',
-//                 'rgba(75, 192, 192, 1)',
-//                 'rgba(153, 102, 255, 1)',
-//                 'rgba(255, 159, 64, 1)'
-//             ],
-//             borderWidth: 1
-//         },
-// 		{
-//             label: 'Average Teacher Attendance',
-//             data: [15, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255, 159, 64, 0.2)',
-//                 'rgba(153, 102, 255, 0.2)',
-//                 'rgba(75, 192, 192, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 99, 132, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255, 159, 64, 1)',
-//                 'rgba(153, 102, 255, 1)',
-//                 'rgba(75, 192, 192, 1)',
-//                 'rgba(255, 206, 86, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 99, 132, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-// 				stacked: true,
-//                 ticks: {
-//                     beginAtZero:true
-//                 }
-//             }],
-//             xAxes: [{
-// 				stacked: true,
-//                 ticks: {
-//                     beginAtZero:true
-//                 }
-//             }]
-//
-//         }
-//     }
-// });
-    /*Stack Chart End*/
-    /*Dougnut Chart Start*/
-    // var ctxDoughnut = document.getElementById("dataset1DoughnutChart");
-    // var myDoughnutChart = new Chart(ctxDoughnut, {
-    //   type: 'doughnut',
-    //   data: {
-    //     labels: [
-    //         "Red",
-    //         "Blue",
-    //         "Yellow"
-    //     ],
-    //     datasets: [
-    //         {
-    //             data: [300, 50, 100],
-    //             backgroundColor: [
-    //                 "#FF6384",
-    //                 "#36A2EB",
-    //                 "#FFCE56"
-    //             ],
-    //             hoverBackgroundColor: [
-    //                 "#FF6384",
-    //                 "#36A2EB",
-    //                 "#FFCE56"
-    //             ]
-    //         }]
-    //       }
-    // });
-    // /*Dougnut Chart End*/
-  </script>
+
     <script type="text/javascript">
         $(document).ready(function () {});
     </script>
