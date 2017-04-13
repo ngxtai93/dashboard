@@ -5,31 +5,12 @@ class ChartType {
   }
 
   prepare() {
-    console.log("Preparing " + this.datasetName + this.divID);
-    console.log("Tossing dough...");
-    console.log("Adding sauce");
-    console.log("Adding toppings:");
-
-    // for (let topping of this.toppings) {
-    //   console.log(topping + "  ");
-    //}
+    console.log("Testing"  + this.datasetName + this.divID);
   }
+  //More functions to come
 
-  bake() {
-    console.log("Bake for 25 minutes at 350");
-  }
-
-  cut() {
-    console.log("Cutting the pizza into diagonal slices");
-  }
-
-  box() {
-    console.log("Place pizza in official PizzaStore box");
-  }
 
   getName() {
     return this.name;
   }
 }
-
-//export default Pizza;

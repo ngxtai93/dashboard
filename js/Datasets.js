@@ -8,12 +8,6 @@ class DatasetsC {
   createChart(type, datasetName, divID) {
     let chartType = this.plotChart(type, datasetName, divID);
 
-     chartType.prepare();
      chartType.displayChart();
-    // pizza.bake();
-    // pizza.cut();
-    // pizza.box();
-  }
 }
-
-//export default PizzaStore;
+}

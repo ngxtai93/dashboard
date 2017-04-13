@@ -4,12 +4,6 @@ const CHART = {
   Stack : Stack,
   Pie : Pie,
   Doughnut : Doughnut
-  // ,
-  // pieChart: Pie,
-  // lineChart: Line,
-  // stackChart: Stack,
-  // doughnutChart: Doughnut
-
 };
 
 class SelectDataset1 extends DatasetsC {

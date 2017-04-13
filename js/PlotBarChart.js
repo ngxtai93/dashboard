@@ -14,14 +14,14 @@ class Bar extends ChartType {
               var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
               getData = groupedDF.toCollection();
               console.log(getData);
-              return false;
+              return getData;
           }
       ).catch(err => {
           console.log(err);
       });
     }
   displayChart() {
-      this.sendData(this.datasetName)
+      var test = this.sendData(this.datasetName)
       divTestID = this.divID;
       //console.log(getData);
       // var getData;
