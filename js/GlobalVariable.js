@@ -4,3 +4,6 @@ var DataFrame;
 var getData, getPieData,getDoughnutData;
 var getData, getPieData,getDoughnutData; var getStackData = [];
 var divTestID;
+var dataset1Filters = [];
+
+var df1,df2,df3,df4,df5;
