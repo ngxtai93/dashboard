@@ -95,65 +95,83 @@ class renderDatasets {
                     'Individualized Education Program Compliance Rate ', 'College Enrollment',
                     'General Services Route ', 'Latitude', 'Longitude', 'Community Area Number',
                     'Community Area Name', 'Ward', 'Police District', 'Location');
-                var dataset1Data = selectColumns.toCollection();
+
+                var theadValues = selectColumns.listColumns();
+                dataset1Data = selectColumns.toCollection();
                 //console.log(test);
-                var thead = '<tr>' +
-                    '<th>School ID</th><th>School Name</th><th>EMH_School</th><th>Street Address</th>' +
-                    '<th>City</th><th>State</th><th>ZIP</th><th>Phone Number</th><th>Collaborative Name</th>' +
-                    '<th>Adequate Yearly Progress Made</th><th>School Track</th><th>CPS Performance Policy Status</th>' +
-                    '<th>Overall Rating</th><th>Healthy Schools Certified?</th><th>Safety</th><th>Safety Score</th>' +
-                    '<th>Family Involvement Icon</th><th>Growth Overall Level</th><th>Environment Score </th>' +
-                    '<th>Instruction Icon</th><th>Instruction Score</th><th>Parent Engagement Icon</th>' +
-                    '<th>Parent Engagement Score</th><th>Parent Environment Icon</th><th>Parent Environment Score</th>' +
-                    '<th>Average Student Attendance</th><th>Rate of Misconducts (per 100 students)</th>' +
-                    '<th>Average Teacher Attendance</th><th>Individualized Education Program Compliance Rate</th>' +
-                    '<th>College Enrollment</th><th>General Services Route</th><th>Latitude</th>' +
-                    '<th>Longitude</th><th>Community Area Number</th><th>Community Area Name</th>' +
-                    '<th>Ward</th><th>Police District</th><th>Location</th>';
-                '</tr>';
-                $("#" + parentDiv + "Table thead").html(thead);
+                // var thead = '<tr>' +
+                //     '<th class="id1">School ID</th><th class="name1">School Name</th><th class="EMH_School1">EMH_School</th><th class="address1">Street Address</th>' +
+                //     '<th class="city1">City</th><th class="state1">State</th><th class="zip1">ZIP</th><th class="phone1">Phone Number</th><th class="collaborative_Name1">Collaborative Name</th>' +
+                //     '<th class="year_progress1">Adequate Yearly Progress Made</th><th class="school_track1">School Track</th><th>CPS Performance Policy Status</th>' +
+                //     '<th>Overall Rating</th><th>Healthy Schools Certified?</th><th>Safety</th><th>Safety Score</th>' +
+                //     '<th>Family Involvement Icon</th><th>Growth Overall Level</th><th>Environment Score </th>' +
+                //     '<th>Instruction Icon</th><th>Instruction Score</th><th>Parent Engagement Icon</th>' +
+                //     '<th>Parent Engagement Score</th><th>Parent Environment Icon</th><th>Parent Environment Score</th>' +
+                //     '<th>Average Student Attendance</th><th>Rate of Misconducts (per 100 students)</th>' +
+                //     '<th>Average Teacher Attendance</th><th>Individualized Education Program Compliance Rate</th>' +
+                //     '<th>College Enrollment</th><th>General Services Route</th><th>Latitude</th>' +
+                //     '<th>Longitude</th><th>Community Area Number</th><th>Community Area Name</th>' +
+                //     '<th>Ward</th><th>Police District</th><th>Location</th>';
+                // '</tr>';
+                for (var i = 0; i < theadValues.length; i++) {
+                  var thead = '<th class="first_dataset_filter'+i+'">'+theadValues[i]+'</th>';
+                  var filter = '<div class="checkbox pull-left pdR-15">'+
+                                '<label>'+
+                                  '<input type="checkbox" class="first_dataset_filter_visiblity'+i+'"> '+theadValues[i]+''+
+                                  '</label>'+
+                                '</div>';
+                  $("#" + parentDiv + "Table thead tr").append(thead);
+                  $("#" + parentDiv + " .dataset1Filters").append(filter);
+                }
+
+
                 var tbody = $("#" + parentDiv + "Table tbody");
 
                 for (var i = 0; i < dataset1Data.length; i++) {
                     var content = '<tr>' +
-                        '<td>' + dataset1Data[i]["School ID"] + '</td>' +
-                        '<td>' + dataset1Data[i]["School Name"] + '</td>' +
-                        '<td>' + dataset1Data[i]["EMH_School"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Street Address"] + '</td>' +
-                        '<td>' + dataset1Data[i]["City"] + '</td>' +
-                        '<td>' + dataset1Data[i]["State"] + '</td>' +
-                        '<td>' + dataset1Data[i]["ZIP"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Phone Number"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Collaborative Name"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Adequate Yearly Progress Made"] + '</td>' +
-                        '<td>' + dataset1Data[i]["School Track"] + '</td>' +
-                        '<td>' + dataset1Data[i]["CPS Performance Policy Status"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Overall Rating"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Healthy Schools Certified?"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Safety"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Safety Score"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Family Involvement Icon"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Growth Overall Level"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Environment Score"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Instruction Icon"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Instruction Score"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Parent Engagement Icon"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Parent Engagement Score"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Parent Environment Icon"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Parent Environment Score"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Average Student Attendance"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Rate of Misconducts (per 100 students)"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Average Teacher Attendance"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Individualized Education Program Compliance Rate"] + '</td>' +
-                        '<td>' + dataset1Data[i]["College Enrollment"] + '</td>' +
-                        '<td>' + dataset1Data[i]["General Services Route"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Latitude"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Longitude"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Community Area Number"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Community Area Name"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Ward"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Police District"] + '</td>' +
-                        '<td>' + dataset1Data[i]["Location"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'">' + dataset1Data[i]["School ID"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'">' + dataset1Data[i]["School Name"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'">' + dataset1Data[i]["EMH_School"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'">' + dataset1Data[i]["Street Address"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["City"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["City"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["City"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Collaborative Name"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Adequate Yearly Progress Made"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["School Track"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["CPS Performance Policy Status"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'"  >' + dataset1Data[i]["Overall Rating"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'"  >' + dataset1Data[i]["Overall Rating"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'"  >' + dataset1Data[i]["Overall Rating"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'"  >' + dataset1Data[i]["Overall Rating"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'"  >' + dataset1Data[i]["Overall Rating"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'"  >' + dataset1Data[i]["Overall Rating"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'"  >' + dataset1Data[i]["Overall Rating"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'"  >' + dataset1Data[i]["Overall Rating"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Safety"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Safety Score"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Family Involvement Icon"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Growth Overall Level"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Environment Score"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Instruction Icon"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Instruction Score"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Parent Engagement Icon"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Parent Engagement Score"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Parent Environment Icon"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Parent Environment Score"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Average Student Attendance"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Rate of Misconducts (per 100 students)"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Average Teacher Attendance"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Individualized Education Program Compliance Rate"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["College Enrollment"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["General Services Route"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Latitude"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Longitude"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Community Area Number"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Community Area Name"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Ward"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Police District"] + '</td>' +
+                        '<td class="first_dataset_filter'+i+'" >' + dataset1Data[i]["Location"] + '</td>' +
                         '</tr>';
                     $(tbody).append(content);
                 }

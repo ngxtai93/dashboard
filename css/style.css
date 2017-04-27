@@ -278,3 +278,6 @@ body {
     background-size: 100%;
     z-index: 9999;
 }
+input[type="checkbox"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+  vertical-align: 0px !important;
+}
