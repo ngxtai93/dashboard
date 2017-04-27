@@ -1,5 +1,6 @@
 class Filter{
-  generateColumnFilter(column,columnName){ //Collection of column header
+  generateColumnFilter(dataset,columnName){ //Collection of column header
+
     var output = '<select multiple id="columnfilter-'+ columnName +'">';
     for (var i = 0; i < column.length; i++) {
       output += '<option value="'+ column[i] +'">'+ column[i] +'</option>';
