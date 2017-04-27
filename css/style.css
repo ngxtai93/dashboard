@@ -281,3 +281,10 @@ body {
 input[type="checkbox"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
   vertical-align: 0px !important;
 }
+.datasetFilters input[type="checkbox"]{
+  margin-right: 5px;
+}
+.select-options select{
+  border: 1px solid #ddd !important;
+  box-shadow: none !important;
+}

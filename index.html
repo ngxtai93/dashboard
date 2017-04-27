@@ -94,8 +94,23 @@
                               <div class="col-xs-12 mrB-10">
                                 <h6><strong class="text-center col-xs-12">Please Select the Data Labels (Coulmns).</strong></h6>
                               </div>
-                              <div class="col-xs-offset-1 col-xs-10 dataset1Filters">
+                              <div class="col-xs-offset-1 col-xs-10 dataset1Filters datasetFilters">
 
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-lg-12 text-right">
+                               <a href="#" id="addFilter1" class="btn btn-primary mrL-15 mrR-10">Add Filters</a>
+                             </div>
+                            </div>
+                            <div class="form-group select-options">
+                              <div class="col-lg-12">
+                                <!-- <p>Test</p> -->
+                                <!-- <select class="selectpicker" multiple>
+                                  <option>Mustard</option>
+                                  <option>Ketchup</option>
+                                  <option>Relish</option>
+                                </select> -->
                               </div>
                             </div>
                             <div class="form-group">
@@ -367,10 +382,19 @@
     <script type="text/javascript" src="js/PlotDoughnutchart.js"></script>
     <script type="text/javascript" src="js/Datasets.js"></script>
     <script type="text/javascript" src="js/SelectDataset1.js"></script>
+    <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="js/Filter.js"></script>
 
     <script type="text/javascript">
       $(window).on('load', function () {
         var test = new Datasets();
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('.multiselect-ui').multiselect({
+            includeSelectAllOption: true
+        });
       });
     </script>
     <script type="text/javascript">
@@ -432,7 +456,47 @@
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function () {});
+        $('.datasetFilters ').on('click', 'input[type="checkbox"]', function () {
+          var getDatasetVar = $(this).attr("datasetNAme");
+          if($(this).prop("checked") == true){
+            if(getDatasetVar == "dataset1Filters"){
+              dataset1Filters.push($(this).parent().text());
+              console.log(dataset1Filters);
+            }
+            //for other GlobalVariables
+          } else {
+            if(getDatasetVar == "dataset1Filters"){
+              dataset1Filters.splice(dataset1Filters.indexOf($(this).parent().text() ), 1);
+              console.log(dataset1Filters);
+            }
+          }
+
+        });
+        $("#addFilter1").on('click', function (e) {
+          e.preventDefault();
+          $(".select-options").children().remove();
+          //$('.datasetFilters ')
+
+
+
+          var length = dataset1Filters.length;
+          var ft = new Filter();
+          for ( var i = 0; i < length; i++) {
+            var selectDropdown = '<label for="select" class="col-lg-2 control-label">'+dataset1Filters[i]+'</label>'+
+                                  '<div class="col-lg-10">'+
+                                    '<select multiple class="form-control selectDatasetFilter'+i+'" id="">'+
+                                    '</select>'+
+                                  '</div>';
+            $(this).parent().parent().siblings(".select-options").append(selectDropdown);
+            var option = ft.generateColumnFilter(dataset1Filters[i]);
+              $(".selectDatasetFilter"+i).append(option);
+          }
+
+
+          //var option = '<option value="Mustard">Mustard</option>'+
+                    //  '<option value="sdfsfsd">sfsfds</option>';
+
+        });
     </script>
 </body>
 

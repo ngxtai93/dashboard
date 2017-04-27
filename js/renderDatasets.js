@@ -14,6 +14,12 @@ $(window).on('load', function () {
     renderD = new Dataset5('All_School_13-14', 'dataset5');
     //Hide Page spinner
     $(".page-spinner").fadeOut();
+    // // <script type="text/javascript">
+    //     $('.datasetFilters input[type="checkbox"]').on('click', function () {
+    //       var getDatasetVar = $(this).attr("datasetNAme");
+    //       getDatasetVar.push()
+    //     });
+    // // </script>
 
 });
 var Dataframe;
@@ -98,6 +104,8 @@ class renderDatasets {
 
                 var theadValues = selectColumns.listColumns();
                 dataset1Data = selectColumns.toCollection();
+
+                df1 = selectColumns;
                 //console.log(test);
                 // var thead = '<tr>' +
                 //     '<th class="id1">School ID</th><th class="name1">School Name</th><th class="EMH_School1">EMH_School</th><th class="address1">Street Address</th>' +
@@ -115,9 +123,9 @@ class renderDatasets {
                 // '</tr>';
                 for (var i = 0; i < theadValues.length; i++) {
                   var thead = '<th class="first_dataset_filter'+i+'">'+theadValues[i]+'</th>';
-                  var filter = '<div class="checkbox pull-left pdR-15">'+
+                  var filter = '<div class="checkbox  pull-left pdR-15">'+
                                 '<label>'+
-                                  '<input type="checkbox" class="first_dataset_filter_visiblity'+i+'"> '+theadValues[i]+''+
+                                  '<input type="checkbox" class="" datasetNAme="dataset1Filters" class="first_dataset_filter_visiblity'+i+'">'+theadValues[i]+''+
                                   '</label>'+
                                 '</div>';
                   $("#" + parentDiv + "Table thead tr").append(thead);
