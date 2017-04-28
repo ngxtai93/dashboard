@@ -1,4 +1,15 @@
+const instance = null;
+
 class Filter{
+  constructor() {
+        if(!instance){
+              instance = this;
+        }
+    this.time = new Filter()
+
+    return instance;
+  }
+
   generateColumnFilter(columnName){ //Collection of column header
     var collections = df1.select(columnName).distinct(columnName).toCollection();
     var test = df1.select(columnName).toArray();
@@ -12,3 +23,5 @@ class Filter{
     return output;
   }
 }
+
+instance = new Filter();
