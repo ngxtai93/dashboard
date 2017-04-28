@@ -1,23 +1,15 @@
-class simplePlot{
-  var df;
-  constructor(df){
-    this.df = df;
-  }
-  DataFrame plot(){
-    return df;
-  }
-}
-
 class Filter{
   var filter;
-  var decorated;
-  constructor(decorated, filter){
+  var filterName;
+  var dataframe;
+  constructor(dataframe, filterName, filter){
+    this.filterName = filterName;
     this.filter = filter;
-    this.decorated = decorated;
+    this.dataframe = dataframe;
   }
-  DataFrame plot(){
-    var df = decorated.plot()
-    return df.groupBy(filter).aggregate(group => group.count()).rename('aggregation', 'Count');
+  getFiltered(){
+    return df = dataframe.filter(row => row.get(filterName) === filter);
+    //return df.groupBy(filter).aggregate(group => group.count()).rename('aggregation', 'Count');
   }
 }
 
@@ -33,8 +25,11 @@ class Range{
 
     this.decorated = decorated;
   }
-  DataFrame plot(){
+  DataFrame getFiltered(){
     var df = decorated.plot()
+    if(isNaN(dataframe[0][column])){
+      return dataframe;
+    }
     if(sign === 'equal'){
       return df.filter(row => row.get(column) === range)
     } else if(sign === 'greater'){
@@ -47,3 +42,6 @@ class Range{
     return null;
   }
 }
+
+var dec = new Range(new Filter(df1,col1,filter1),200,1,col1);
+dec.getFiltered();
