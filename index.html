@@ -363,6 +363,7 @@
     <script type="text/javascript" src="js/SelectDataset1.js"></script>
     <script type="text/javascript" src="js/bootstrap-select.js"></script>
     <script type="text/javascript" src="js/Filter.js"></script>
+    <script type="text/javascript" src="js/Decorator.js"></script>
 
     <script type="text/javascript">
       $(window).on('load', function () {
@@ -477,12 +478,15 @@
 
         });
         $("#test").on('click', function () {
+          var test = [];
           $(".select-options .first_dataset").each( function () {
             var getFilterNam = $(this).attr("filter-name");
             var value = $(this).val();
             console.log(value);
             for ( var i = 0; i < value.length; i++) {
-              
+              var dec = new Range(new DecoratorFilter(df1,getFilterNam,value[i]),200,'greater',getFilterNam);
+              var testing = dec.getFiltered();
+              console.log(testing.toArray());
             }
           });
         });
