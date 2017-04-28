@@ -1,13 +1,12 @@
-const instance = null;
 
 class Filter{
   constructor() {
-        if(!instance){
-              instance = this;
-        }
-    this.time = new Filter()
-
-    return instance;
+    if(!this.instance){
+          this.instance = this;
+    } else {
+    this.instance = new Filter()
+    }
+    return this.instance;
   }
 
   generateColumnFilter(columnName){ //Collection of column header
@@ -24,4 +23,4 @@ class Filter{
   }
 }
 
-instance = new Filter();
+//instance = new Filter();

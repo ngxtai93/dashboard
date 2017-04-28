@@ -1,38 +1,46 @@
 class Line extends ChartType {
-  constructor( datasetName, divID) {
+  constructor( datasetName, divID, gotDataFromFilter) {
     super({
       datasetName: datasetName,
-      divID: divID
+      divID: divID,
+      gotDataFromFilter: gotDataFromFilter
     });
   }
 
-  sendData(datasetName) {
-      console.log(datasetName + "In function");
-
-      DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
-          df => {
-              var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
-              getData = groupedDF.toCollection();
-              console.log(getData);
-              return false;
-          }
-      ).catch(err => {
-          console.log(err);
-      });
-    }
+  // sendData(datasetName) {
+  //     console.log(datasetName + "In function");
+  //
+  //     DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
+  //         df => {
+  //             var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
+  //             getData = groupedDF.toCollection();
+  //             console.log(getData);
+  //             return false;
+  //         }
+  //     ).catch(err => {
+  //         console.log(err);
+  //     });
+  //   }
   displayChart() {
-    this.sendData(this.datasetName)
+  //  this.sendData(this.datasetName)
     divTestID = this.divID;
+
+  //  var test = this.sendData(this.datasetName)
+    divTestID = this.divID;
+    console.log("In line chart");
+    console.log(this.gotDataFromFilter);
+    getData = this.gotDataFromFilter;
       //super.sendData(this.datasetName); //Need to Change Later
 
-      setTimeout( function () {
+    //  setTimeout( function () {
       var labelArray = [];
       var dataArray = [];
       var backgroundColorArray = [];
       var borderColorArray = [];
-      for (var i in this.getData) {
-          labelArray.push(getData[i].ZIP);
-          dataArray.push(getData[i].Count);
+      for (var i=0;  i< getData[0].length; i++) {
+          labelArray.push(getData[0][i]);
+          dataArray.push(getData[1][i]);
+
       }
       var ctxLine = document.getElementById(divTestID);;
       var lineChart = new Chart(ctxLine, {
@@ -40,7 +48,7 @@ class Line extends ChartType {
           data: {
               labels: labelArray,
               datasets: [{
-                  label: "ZIP",
+                  label: "User Data",
                   fill: false,
                   lineTension: 0.1,
                   backgroundColor: "rgba(75,192,192,0.4)",
@@ -63,7 +71,7 @@ class Line extends ChartType {
               }]
           }
       });
-      }, 2000);
+  //    }, 2000);
 
   }
 }

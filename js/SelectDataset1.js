@@ -7,12 +7,12 @@ const CHART = {
 };
 
 class SelectDataset1 extends DatasetsC {
-  plotChart(type, datasetName, divID) {
+  plotChart(type, datasetName, divID, gotDataFromFilter) {
     let PlotchartConstructor = CHART[type];
     let chartType = null;
     if (PlotchartConstructor) {
       console.log(datasetName);
-      chartType = new PlotchartConstructor(datasetName, divID);
+      chartType = new PlotchartConstructor(datasetName, divID, gotDataFromFilter);
     }
     return chartType;
   }

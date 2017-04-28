@@ -1,8 +1,9 @@
 class Bar extends ChartType {
-  constructor( datasetName, divID) {
+  constructor( datasetName, divID, gotDataFromFilter) {
     super({
       datasetName: datasetName,
-      divID: divID
+      divID: divID,
+      gotDataFromFilter: gotDataFromFilter
     });
 
   }
@@ -23,6 +24,9 @@ class Bar extends ChartType {
   displayChart() {
       var test = this.sendData(this.datasetName)
       divTestID = this.divID;
+      console.log("In bar chart");
+      console.log(this.gotDataFromFilter);
+      getData = this.gotDataFromFilter;
       //console.log(getData);
       // var getData;
       // DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
@@ -33,14 +37,16 @@ class Bar extends ChartType {
       //   ).catch(err => {
       //       console.log(err);
       //   });
-      setTimeout(function() {
+      //setTimeout(function() {
           var labelArray = [];
           var dataArray = [];
           var backgroundColorArray = [];
           var borderColorArray = [];
-          for (var i in this.getData) {
-              labelArray.push(getData[i].ZIP);
-              dataArray.push(getData[i].Count);
+          for (var i=0; i < getData[0].length; i++) {
+              // labelArray.push(getData[i].ZIP);gotDataFromFilter[0][i]
+              // dataArray.push(getData[i].Count);
+              labelArray.push(getData[0][i]);
+              dataArray.push(getData[1][i]);
               var color1 = Math.ceil(Math.random() * 255);
               var color2 = Math.ceil(Math.random() * 255);
               var color3 = Math.ceil(Math.random() * 255);
@@ -56,7 +62,7 @@ class Bar extends ChartType {
               data: {
                   labels: labelArray,
                   datasets: [{
-                      label: 'ZIP',
+                      label: 'User Values',
                       data: dataArray,
                       backgroundColor: backgroundColorArray,
                       borderColor: borderColorArray,
@@ -73,7 +79,7 @@ class Bar extends ChartType {
                   }
               }
           });
-      }, 2000);
+      //}, 2000);
 
   }
 }

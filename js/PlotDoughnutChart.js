@@ -1,43 +1,45 @@
 class Doughnut extends ChartType {
-  constructor( datasetName, divID) {
+  constructor( datasetName, divID, gotDataFromFilter) {
     super({
       datasetName: datasetName,
-      divID: divID
+      divID: divID,
+      gotDataFromFilter: gotDataFromFilter
     });
   }
-  doughnutChartData (datasetName) {
-    var CollaborativeData;
-    console.log(datasetName + "In DoughnutChart function");
-
-    DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
-        df => {
-            var NORTH_NORTHWEST_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'NORTH-NORTHWEST SIDE COLLABORATIVE').count();
-            var SOUTH_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'SOUTH SIDE COLLABORATIVE').count();
-            var SOUTHWEST_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'SOUTHWEST SIDE COLLABORATIVE').count();
-            var FAR_SOUTH_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'FAR SOUTH SIDE COLLABORATIVE').count();
-            var WEST_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'WEST SIDE COLLABORATIVE').count();
-            CollaborativeData = {
-              'NORTH-NORTHWEST SIDE COLLABORATIVE' : NORTH_NORTHWEST_SIDE_COLLABORATIVE,
-              'SOUTH SIDE COLLABORATIVE' : SOUTH_SIDE_COLLABORATIVE,
-              'SOUTHWEST SIDE COLLABORATIVE' : SOUTHWEST_SIDE_COLLABORATIVE,
-              'FAR SOUTH SIDE COLLABORATIVE' : FAR_SOUTH_SIDE_COLLABORATIVE,
-              'WEST SIDE COLLABORATIVE' : WEST_SIDE_COLLABORATIVE
-            }
-            getDoughnutData = CollaborativeData;
-            return false;
-            //getData = groupedDF.toCollection();
-            //console.log(getData);
-
-        }
-    ).catch(err => {
-        console.log(err);
-    });
-  }
+  // doughnutChartData (datasetName) {
+  //   var CollaborativeData;
+  //   console.log(datasetName + "In DoughnutChart function");
+  //
+  //   DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
+  //       df => {
+  //           var NORTH_NORTHWEST_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'NORTH-NORTHWEST SIDE COLLABORATIVE').count();
+  //           var SOUTH_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'SOUTH SIDE COLLABORATIVE').count();
+  //           var SOUTHWEST_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'SOUTHWEST SIDE COLLABORATIVE').count();
+  //           var FAR_SOUTH_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'FAR SOUTH SIDE COLLABORATIVE').count();
+  //           var WEST_SIDE_COLLABORATIVE = df.filter(row => row.get('Collaborative Name') === 'WEST SIDE COLLABORATIVE').count();
+  //           CollaborativeData = {
+  //             'NORTH-NORTHWEST SIDE COLLABORATIVE' : NORTH_NORTHWEST_SIDE_COLLABORATIVE,
+  //             'SOUTH SIDE COLLABORATIVE' : SOUTH_SIDE_COLLABORATIVE,
+  //             'SOUTHWEST SIDE COLLABORATIVE' : SOUTHWEST_SIDE_COLLABORATIVE,
+  //             'FAR SOUTH SIDE COLLABORATIVE' : FAR_SOUTH_SIDE_COLLABORATIVE,
+  //             'WEST SIDE COLLABORATIVE' : WEST_SIDE_COLLABORATIVE
+  //           }
+  //           getDoughnutData = CollaborativeData;
+  //           return false;
+  //           //getData = groupedDF.toCollection();
+  //           //console.log(getData);
+  //
+  //       }
+  //   ).catch(err => {
+  //       console.log(err);
+  //   });
+  // }
   displayChart() {
-        this.doughnutChartData(this.datasetName);
+        //this.doughnutChartData(this.datasetName);
         divTestID = this.divID;
-        console.log("DoughnutData");
-
+        console.log("In Doughnut chart");
+        console.log(this.gotDataFromFilter);
+        getDoughnutData = this.gotDataFromFilter;
         // var getData;
         // DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
         //     df => {
@@ -47,14 +49,14 @@ class Doughnut extends ChartType {
         //   ).catch(err => {
         //       console.log(err);
         //   });
-        setTimeout(function() {
+        //setTimeout(function() {
             var labelArray = [];
             var dataArray = [];
             var backgroundColorArray = [];
             var hoverBackgroundColor = [];
-            for (var i in getDoughnutData) {
-                labelArray.push(i);
-                dataArray.push(getDoughnutData[i]);
+            for (var i=0; i < getDoughnutData[0].length; i++) {
+                labelArray.push(getDoughnutData[0][i]);
+                dataArray.push(getDoughnutData[1][i]);
                 var color1 = Math.ceil(Math.random() * 255);
                 var color2 = Math.ceil(Math.random() * 255);
                 var color3 = Math.ceil(Math.random() * 255);
@@ -77,7 +79,7 @@ class Doughnut extends ChartType {
                     }
             });
             // /*Pie Chart END*/
-        }, 2000);
+      //  }, 2000);
 
     }
 }

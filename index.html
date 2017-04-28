@@ -126,39 +126,49 @@
                                   </select>
                                 </div>
                               </div>
-                            <div class="form-group numerical_filter">
+                            <div class="form-group numerical_filter mr-0">
+                              <div class="checkbox text-right">
+                                <label>
+                                  <input class="numerical_filter_check mrR-5" type="checkbox">  Use Numerical Filter</label>
+                              </div>
+                            </div>
+                            <div class="form-group numerical_filter filter_disabled">
                                <label class="col-lg-2 control-label">Please Select the Filter Condition </label>
                                <div class="col-lg-10">
-                                 <div class="radio">
-                                   <label>
-                                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                                     Greater than Equal to
-                                   </label>
-                                 </div>
-                                 <div class="radio">
-                                   <label>
-                                     <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                     Less than Equal to
-                                   </label>
-                                 </div>
-                                 <div class="radio">
-                                   <label>
-                                     <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                                     Equal to
-                                   </label>
-                                 </div>
+                                 <div class="radio disabled">
+                                       <label>
+                                         <input type="radio" name="optionsRadios" id="optionsRadios1" value="greater" checked="" disabled=true>
+                                         Greater than Equal to
+                                       </label>
+                                     </div>
+                                  <div class="radio disabled">
+                                       <label>
+                                         <input type="radio" name="optionsRadios" id="optionsRadios2" value="lesser" disabled=true>
+                                         Less than Equal to
+                                       </label>
+                                     </div>
+                                  <div class="radio disabled">
+                                       <label>
+                                         <input type="radio" name="optionsRadios" id="optionsRadios2" value="equal" disabled=true>
+                                         Equal to
+                                       </label>
+                                     </div>
+
+
+
                                </div>
                                <div class="form-group clear-both">
                                 <label for="numericalValue" class="col-lg-2 control-label">Please Enter the value for Filter Condition</label>
                                 <div class="col-lg-10">
-                                  <input type="text" class="form-control" id="numericalValue" placeholder="">
+                                  <input type="text" class="form-control numerical_value" id="numericalValue" placeholder="">
                                 </div>
                               </div>
+                            </div>
                             <div class="form-group">
                                <div class="col-lg-10 col-lg-offset-2 text-right">
                                  <a href="#" id="test" dataset-name = "Ch_PS_11-12" class="btn btn-primary mrL-15 mrR-10">test</a>
                                  <button type="reset" class="btn btn-default">Cancel</button>
-                                 <a href="#" id="PlotChart1" dataset-name = "Ch_PS_11-12" class="btn btn-primary mrL-15 mrR-10">Plot Chart</a>
+                                 <a href="#" id="PlotChart1" dataset-name = "Ch_PS_11-12" dataset-id="dataset1" class="btn btn-primary mrL-15 mrR-10">Plot Chart</a>
                                </div>
                              </div>
                             </fieldset>
@@ -166,7 +176,7 @@
 
                         </div>
                         <!-- Charts Div Starts-->
-                        <div class="bs-example">
+                        <div class="bs-example clear-both">
                           <div class="panel-group chart-accordian" id="accordion">
                               <div class="panel panel-default chart-div" style="display:none;">
                                   <div class="panel-heading">
@@ -299,56 +309,6 @@
         </div>
     </div>
     <!--Footer Ends-->
-    <!-- Modal for Confirm Test Submission Start -->
-    <div id="feedFoodPopup" class="modal">
-         <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header pdB-10">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title">Select the Food</h4>
-                  </div>
-                <div class="modal-body pdT-0">
-                    <form class="form-horizontal">
-                        <fieldset>
-                            <div class="form-group">
-                              <div class="col-lg-10 food-options">
-                                <div class="radio">
-                                  <label>
-                                    <input type="radio" name="optionsRadios" id="appleRadio" value="apple">
-                                    Apple
-                                  </label>
-                                </div>
-                                <div class="radio">
-                                  <label>
-                                    <input type="radio" name="optionsRadios" id="bananaRadio" value="banana" checked="">
-                                    Banana
-                                  </label>
-                                </div>
-                                <div class="radio">
-                                  <label>
-                                    <input type="radio" name="optionsRadios" id="grassRadio" value="grass">
-                                    Grass
-                                  </label>
-                                </div>
-                                <div class="radio">
-                                  <label>
-                                    <input type="radio" name="optionsRadios" id="meatRadio" value="meat">
-                                    Meat
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary show-result feed-btn" data-dismiss="modal">Feed</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal for Confirm Test Submission End -->
     <!-- <script type="text/javascript" src="js/Common.js"></script> -->
     <script type="text/javascript" src="js/GlobalVariable.js"></script>
     <script type="text/javascript" src="js/renderDatasets.js"></script>
@@ -370,13 +330,7 @@
         var test = new Datasets();
       });
     </script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('.multiselect-ui').multiselect({
-            includeSelectAllOption: true
-        });
-      });
-    </script>
+
     <script type="text/javascript">
       $("#PlotChart1").on('click', function (e) {
         e.preventDefault();
@@ -395,6 +349,7 @@
         // getStackChartData.plotStackchart(schoolArray);
 
         //$("#collapseOne").addClass("in");
+        var getDataFromFilter = getSelectedColumnValues($(this).attr("dataset-id"));
         var datasetName = $(this).attr("dataset-name");
         var typeOfChart = $(".selectChart").val();
         var divID = getReltedDivID(typeOfChart);
@@ -403,7 +358,7 @@
         $(this).closest(".tab-pane").find(".chart-accordian").children().find("#"+divID[0]).parent().show();
         $(this).closest(".tab-pane").find(".chart-accordian").children().find("#"+divID[0]).addClass("in");
         var selectedDatasetName= new SelectDataset1();
-        selectedDatasetName.createChart(typeOfChart, datasetName, divID[1]);
+        selectedDatasetName.createChart(typeOfChart, datasetName, divID[1], getDataFromFilter);
         //$(document).scrollTo(.closest(".tab-pane").find(".chart-accordian").children().find("#"+divID[0]).parent());
         setTimeout(function () {
           $(".page-spinner").hide();
@@ -429,7 +384,37 @@
         }
         return divID;
       }
-
+      //function to get the data from selected filter column
+      function getSelectedColumnValues(datasetId) {
+        var datasetID = datasetId;
+       var test = [];
+       var labelCount =[];
+       var labelArray =[];
+       var flag = $("#"+datasetID+" .numerical_filter_check").prop("checked");
+       var getCondition;
+       var getInputVal = $("#"+datasetID+" .numerical_value").val();
+       $("#"+datasetID+" .numerical_filter input[type='radio']").each( function () {
+         if($(this).prop("checked") == true) {
+           getCondition = $(this).attr("value");
+         }
+       });
+       $("#"+datasetID+" .select-options .first_dataset").each( function () {
+         var getFilterNam = $(this).attr("filter-name");
+         var label = $(this).val();
+         labelArray = labelArray.concat(label);
+         for ( var i = 0; i < label.length; i++) {
+           var dec = new DecoratorFilter(df1,getFilterNam,label[i]);
+           if(flag) {
+             var dec = new Range(dec,getInputVal,getCondition,getFilterNam);
+           }
+           var value = dec.getFiltered().count();
+           labelCount.push(value);
+           console.log(value);
+         }
+       });
+       console.log(labelCount, labelArray);
+       return [labelArray, labelCount];
+     }
     //   var oPizzaStore = new NewYorkPizzaStore();
     // oPizzaStore.orderPizza("pepperoni");
 
@@ -477,20 +462,20 @@
                     //  '<option value="sdfsfsd">sfsfds</option>';
 
         });
-        $("#test").on('click', function () {
-          var test = [];
-          $(".select-options .first_dataset").each( function () {
-            var getFilterNam = $(this).attr("filter-name");
-            var value = $(this).val();
-            console.log(value);
-            for ( var i = 0; i < value.length; i++) {
-              var dec = new Range(new DecoratorFilter(df1,getFilterNam,value[i]),200,'greater',getFilterNam);
-              var testing = dec.getFiltered().count();
-              console.log(testing);
-            }
-          });
-        });
 
+        $(".numerical_filter_check").on('click', function () {
+          if($(this).prop("checked") == true) {
+            $(this).closest(".form-group").siblings(".numerical_filter").toggleClass("filter_disabled");
+            $(this).closest(".form-group").siblings(".numerical_filter").find(".radio").toggleClass("disabled");
+            $(this).closest(".form-group").siblings(".numerical_filter").find("input[type='radio']").attr("disabled",false);
+            $(this).closest(".form-group").siblings(".numerical_filter").find(".numerical_value").attr("disabled",false);
+          } else {
+            $(this).closest(".form-group").siblings(".numerical_filter").toggleClass("filter_disabled");
+            $(this).closest(".form-group").siblings(".numerical_filter").find(".radio").toggleClass("disabled");
+            $(this).closest(".form-group").siblings(".numerical_filter").find("input[type='radio']").attr("disabled",true);
+            $(this).closest(".form-group").siblings(".numerical_filter").find(".numerical_value").attr("disabled",true);
+          }
+        });
     </script>
 </body>
 
