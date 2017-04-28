@@ -1,4 +1,4 @@
-class simplePlot{
+class SimplePlot{
   var df;
   constructor(df){
     this.df = df;
@@ -47,3 +47,6 @@ class Range{
     return null;
   }
 }
+
+var filter = new Filter(new SimplePlot(df1),'FILTER NAME');
+var df = filter.plot();

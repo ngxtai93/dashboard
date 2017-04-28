@@ -165,6 +165,9 @@ body {
     margin-bottom: 15px;
 }
 
+.mrB-20 {
+  margin-bottom: 20px;
+}
 .mrL-20 {
     margin-left: 20px !important;
 }
@@ -287,4 +290,11 @@ input[type="checkbox"], .checkbox input[type="checkbox"], .checkbox-inline input
 .select-options select{
   border: 1px solid #ddd !important;
   box-shadow: none !important;
+}
+.numerical_filter .radio {
+  float: left;
+  margin-right: 20px;
+}
+.numerical_filter input[type="radio"] {
+  vertical-align: 0px !important;
 }
