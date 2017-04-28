@@ -485,8 +485,8 @@
             console.log(value);
             for ( var i = 0; i < value.length; i++) {
               var dec = new Range(new DecoratorFilter(df1,getFilterNam,value[i]),200,'greater',getFilterNam);
-              var testing = dec.getFiltered();
-              console.log(testing.toArray());
+              var testing = dec.getFiltered().count();
+              console.log(testing);
             }
           });
         });
