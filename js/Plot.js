@@ -8,7 +8,8 @@ class Filter{
     this.dataframe = dataframe;
   }
   getFiltered(){
-    return df = dataframe.filter(row => row.get(filterName) === filter);
+    df1 = dataframe.select(filterName)
+    return df = df1.filter(row => row.get(filterName) === filter);
     //return df.groupBy(filter).aggregate(group => group.count()).rename('aggregation', 'Count');
   }
 }
