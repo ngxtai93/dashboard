@@ -27,13 +27,13 @@ class Range{
       return df;
     }
     if(this.sign === 'equal'){
-      return df.filter(row => row.get(this.column) === this.range)
+      return df.filter(row => row.get(this.column) === this.value)
     } else if(this.sign === 'greater'){
-      return df.filter(row => row.get(this.column) > this.range)
+      return df.filter(row => row.get(this.column) > this.value)
     } else if(this.sign === 'lesser'){
-      return df.filter(row => row.get(this.column) < this.range)
+      return df.filter(row => row.get(this.column) < this.value)
     } else if(this.sign === 'not equal'){
-      return df.filter(row => row.get(this.column) !== this.range)
+      return df.filter(row => row.get(this.column) !== this.value)
     }
     return null;
   }
