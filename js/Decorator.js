@@ -27,14 +27,18 @@ class Range{
       return df;
     }
     if(this.sign === 'equal'){
-      return df.filter(row => row.get(this.column) === this.value)
+      this.strategy = new EqualRange();
+      //return df.filter(row => row.get(this.column) === this.value)
     } else if(this.sign === 'greater'){
-      return df.filter(row => row.get(this.column) >= this.value)
+      this.strategy = new GreaterRange();
+      //return df.filter(row => row.get(this.column) >= this.value)
     } else if(this.sign === 'lesser'){
-      return df.filter(row => row.get(this.column) <= this.value)
+      this.strategy = new LesserRange();
+      //return df.filter(row => row.get(this.column) <= this.value)
     } else if(this.sign === 'not equal'){
-      return df.filter(row => row.get(this.column) !== this.value)
+      this.strategy = new NotEqualRange();
+      //return df.filter(row => row.get(this.column) !== this.value)
     }
-    return null;
+    return this.strategy.filterRange(df,this.column,this.value);
   }
 }
