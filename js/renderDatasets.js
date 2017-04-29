@@ -95,10 +95,10 @@ class renderDatasets {
                     'General Services Route ', 'Latitude', 'Longitude', 'Community Area Number',
                     'Community Area Name', 'Ward', 'Police District', 'Location');
 
-                var theadValues = selectColumns.listColumns();
-                dataset1Data = selectColumns.toCollection();
+                // var theadValues = selectColumns.listColumns();
+                // dataset1Data = selectColumns.toCollection();
 
-                df1 = selectColumns;
+                // df1 = selectColumns;
                 //console.log(test);
                 // var thead = '<tr>' +
                 //     '<th class="id1">School ID</th><th class="name1">School Name</th><th class="EMH_School1">EMH_School</th><th class="address1">Street Address</th>' +
@@ -114,6 +114,10 @@ class renderDatasets {
                 //     '<th>Longitude</th><th>Community Area Number</th><th>Community Area Name</th>' +
                 //     '<th>Ward</th><th>Police District</th><th>Location</th>';
                 // '</tr>';
+                var theadValues = selectColumns.listColumns();
+                dataset1Data = selectColumns.toCollection();
+
+                df1 = selectColumns;
                 for (var i = 0; i < theadValues.length; i++) {
                   var thead = '<th class="first_dataset_filter'+i+'">'+theadValues[i]+'</th>';
                   var filter = '<div class="checkbox  pull-left pdR-15">'+
@@ -191,17 +195,31 @@ class renderDatasets {
                     'College Enrollment 2012 - Percent', 'Overall Foundation', 'Supportive Environment', 'Safety',
                     'Student Attendance 2011 - Percent', 'Student Attendance 2012 - Percent', 'Teacher Attendance 2011 - Percent',
                     'Teacher Attendance 2012 - Percent', 'Healthy School Certified', 'Blue Ribbon Award');
+                // dataset2Data = selectColumns.toCollection();
+                // //console.log(test);
+                // var thead = '<tr>' +
+                //     '<th>School ID</th><th>School Name</th><th>Street Address</th><th>City</th><th>ZIP</th><th>Website</th>' +
+                //     '<th>School Track</th><th>Overall Rating</th><th>Growth Overall Level</th>' +
+                //     '<th>College Enrollment 2011 - Percent</th><th>College Enrollment 2012 - Percent</th>' +
+                //     '<th>Overall Foundation</th><th>Supportive Environment</th><th>Safety</th><th>Student Attendance 2011 - Percent</th>' +
+                //     '<th>Student Attendance 2012 - Percent</th><th>Teacher Attendance 2011 - Percent</th><th>Teacher Attendance 2012 - Percent</th>' +
+                //     '<th>Healthy School Certified</th><th>Blue Ribbon Award</th>';
+                // '</tr>';
+                // $("#" + parentDiv + "Table thead").html(thead);
+                var theadValues = selectColumns.listColumns();
                 dataset2Data = selectColumns.toCollection();
-                //console.log(test);
-                var thead = '<tr>' +
-                    '<th>School ID</th><th>School Name</th><th>Street Address</th><th>City</th><th>ZIP</th><th>Website</th>' +
-                    '<th>School Track</th><th>Overall Rating</th><th>Growth Overall Level</th>' +
-                    '<th>College Enrollment 2011 - Percent</th><th>College Enrollment 2012 - Percent</th>' +
-                    '<th>Overall Foundation</th><th>Supportive Environment</th><th>Safety</th><th>Student Attendance 2011 - Percent</th>' +
-                    '<th>Student Attendance 2012 - Percent</th><th>Teacher Attendance 2011 - Percent</th><th>Teacher Attendance 2012 - Percent</th>' +
-                    '<th>Healthy School Certified</th><th>Blue Ribbon Award</th>';
-                '</tr>';
-                $("#" + parentDiv + "Table thead").html(thead);
+
+                df2 = selectColumns;
+                for (var i = 0; i < theadValues.length; i++) {
+                  var thead = '<th class="first_dataset_filter'+i+'">'+theadValues[i]+'</th>';
+                  var filter = '<div class="checkbox  pull-left pdR-15">'+
+                                '<label>'+
+                                  '<input type="checkbox" class="" datasetNAme="dataset2Filters" class="first_dataset_filter_visiblity'+i+'">'+theadValues[i]+''+
+                                  '</label>'+
+                                '</div>';
+                  $("#" + parentDiv + "Table thead tr").append(thead);
+                  $("#" + parentDiv + " .dataset2Filters").append(filter);
+                }
                 var tbody = $("#" + parentDiv + "Table tbody");
 
                 for (var i = 0; i < dataset2Data.length; i++) {
@@ -254,7 +272,29 @@ class renderDatasets {
                     'One-Year DropOut Rate Percentage 2013', 'One-Year DropOut Rate Percentage 2012',
                     'X Coordinate', 'Y Coordinate', 'Longitude', 'Latitude', 'Location');
 
+                // dataset3Data = selectColumns.toCollection();
+                // //console.log(test);
+                // var thead = '<tr>' +
+                //     '<th>School ID</th><th>School Name</th><th>Street Address</th><th>City</th><th>State</th>' +
+                //     '<th>ZIP</th><th>Phone Number</th><th>Website</th><th>Blue Ribbon Award</th>' +
+                //     '<th>CPS Performance Policy Level</th><th>CPS Performance Policy Status</th>' +
+                //     '<th>Probation Length</th><th>Overall Rating</th><th>Student Response Rate</th>' +
+                //     '<th>Teacher Response Rate</th><th>Involved Family</th><th>Supportive Environment</th>' +
+                //     '<th>Ambitious Instruction</th><th>Effective Leaders</th><th>Collaborative Teachers</th>' +
+                //     '<th>Safety</th><th>School Community</th><th>Parent-Teacher Partnership</th>' +
+                //     '<th>Quality of Facilities</th><th>Healthy Schools Certification</th>' +
+                //     '<th>Creative Schools Certification</th><th>College Enrollment Rate Percentage 2013</th>' +
+                //     '<th>College Enrollment Rate Percentage 2012</th>' +
+                //     '<th>College Persistence Rate Percentage 2013</th>' +
+                //     '<th>College Persistence Rate Percentage 2012</th><th>Student Attendance Percentage 2013</th>' +
+                //     '<th>Student Attendance Percentage 2012</th><th>One-Year DropOut Rate Percentage 2013</th>' +
+                //     '<th>One-Year DropOut Rate Percentage 2012</th><th>X Coordinate</th><th>Y Coordinate</th>' +
+                //     '<th>Longitude</th><th>Latitude</th><th>Location</th>';
+                // '</tr>';
+                // $("#" + parentDiv + "Table thead").html(thead);
+                var theadValues = selectColumns.listColumns();
                 dataset3Data = selectColumns.toCollection();
+<<<<<<< HEAD
                 var thead = '<tr>' +
                     '<th>School ID</th><th>School Name</th><th>Street Address</th><th>City</th><th>State</th>' +
                     '<th>ZIP</th><th>Phone Number</th><th>Website</th><th>Blue Ribbon Award</th>' +
@@ -273,6 +313,20 @@ class renderDatasets {
                     '<th>Longitude</th><th>Latitude</th><th>Location</th>';
                 '</tr>';
                 $("#" + parentDiv + "Table thead").html(thead);
+=======
+
+                df3 = selectColumns;
+                for (var i = 0; i < theadValues.length; i++) {
+                  var thead = '<th class="first_dataset_filter'+i+'">'+theadValues[i]+'</th>';
+                  var filter = '<div class="checkbox  pull-left pdR-15">'+
+                                '<label>'+
+                                  '<input type="checkbox" class="" datasetNAme="dataset3Filters" class="first_dataset_filter_visiblity'+i+'">'+theadValues[i]+''+
+                                  '</label>'+
+                                '</div>';
+                  $("#" + parentDiv + "Table thead tr").append(thead);
+                  $("#" + parentDiv + " .dataset3Filters").append(filter);
+                }
+>>>>>>> bf4724a142d4ab0dd73264a505b7443618f07e2b
                 var tbody = $("#" + parentDiv + "Table tbody");
 
                 for (var i = 0; i < dataset3Data.length; i++) {
@@ -336,6 +390,7 @@ class renderDatasets {
                                '2011-2012 ENVIRONMENT GRADE','2011-2012 ADDITIONAL CREDIT',
                                '2010-11 PROGRESS REPORT GRADE','2009-10 PROGRESS REPORT GRADE');
 
+<<<<<<< HEAD
                   dataset4Data = selectColumns.toCollection();
                    var thead = '<tr>'+
                           '<th>DBN</th><th>DISTRICT</th><th>SCHOOL</th><th>PRINCIPAL</th>'+
@@ -349,6 +404,36 @@ class renderDatasets {
                           '<th>2009-10 PROGRESS REPORT GRADE</th>';
                                  '</tr>';
                     $("#"+parentDiv+"Table thead").html(thead);
+=======
+                  // dataset4Data = selectColumns.toCollection();
+                  //  //console.log(test);
+                  //  var thead = '<tr>'+
+                  //         '<th>DBN</th><th>DISTRICT</th><th>SCHOOL</th><th>PRINCIPAL</th>'+
+                  //         '<th>PROGRESS REPORT TYPE</th><th>SCHOOL LEVEL</th><th>PEER INDEX</th>'+
+                  //         '<th>2011-2012 OVERALL GRADE</th><th>2011-2012 OVERALL SCORE</th>'+
+                  //         '<th>2011-12 OVERALL PERCENTILE</th><th>2011-2012 PROGRESS CATEGORY SCORE</th>'+
+                  //         '<th>2011-2012 PROGRESS GRADE</th><th>2011-2012 PERFORMANCE CATEGORY SCORE</th>'+
+                  //         '<th>2011-2012 PERFORMANCE GRADE</th><th>2011-2012 ENVIRONMENT CATEGORY SCORE</th>'+
+                  //         '<th>2011-2012 ENVIRONMENT GRADE</th>'+
+                  //         '<th>2011-2012 ADDITIONAL CREDIT</th><th>2010-11 PROGRESS REPORT GRADE</th>'+
+                  //         '<th>2009-10 PROGRESS REPORT GRADE</th>';
+                  //                '</tr>';
+                  //   $("#"+parentDiv+"Table thead").html(thead);
+                  var theadValues = selectColumns.listColumns();
+                        dataset4Data = selectColumns.toCollection();
+
+                        df4 = selectColumns;
+                        for (var i = 0; i < theadValues.length; i++) {
+                          var thead = '<th class="first_dataset_filter'+i+'">'+theadValues[i]+'</th>';
+                          var filter = '<div class="checkbox  pull-left pdR-15">'+
+                                        '<label>'+
+                                          '<input type="checkbox" class="" datasetNAme="dataset4Filters" class="first_dataset_filter_visiblity'+i+'">'+theadValues[i]+''+
+                                          '</label>'+
+                                        '</div>';
+                          $("#" + parentDiv + "Table thead tr").append(thead);
+                          $("#" + parentDiv + " .dataset4Filters").append(filter);
+                        }
+>>>>>>> bf4724a142d4ab0dd73264a505b7443618f07e2b
                     var tbody = $("#"+parentDiv+"Table tbody");
 
               for ( var i = 0; i < dataset4Data.length; i++) {
@@ -420,47 +505,61 @@ class renderDatasets {
                                'Science No. Tested Fall 2010-2011','Science No. Tested Fall 2011-2012',
                                'Science No. Tested Fall 2012-2013','Science No. Tested Spring 2012-2013',
                                'Science No. Tested Spring 2013-2014');
-                  dataset5Data = selectColumns.toCollection();
-                   //console.log(test);
-                   var thead = '<tr>'+
-                          '<th>Network</th><th>School</th><th>School ID</th><th>Unit</th><th>Grade</th>'+
-                          '<th>Composite Mean Fall 2008-2009</th><th>Composite Mean Fall 2009-2010</th>'+
-                          '<th>Composite Mean Fall 2010-2011</th><th>Composite Mean Fall 2011-2012</th>'+
-                          '<th>Composite Mean Fall 2012-2013</th><th>Composite Mean Spring 2012-2013</th>'+
-                          '<th>Composite Mean Spring 2013-2014</th><th>Composite No. Tested Fall 2008-2009</th>'+
-                          '<th>Composite No. Tested Fall 2009-2010</th><th>Composite No. Tested Fall 2010-2011</th>'+
-                          '<th>Composite No. Tested Fall 2011-2012</th><th>Composite No. Tested Fall 2012-2013</th>'+
-                          '<th>Composite No. Tested Spring 2012-2013</th><th>Composite No. Tested Spring 2013-2014</th>'+
-                          '<th>English Mean Fall 2008-2009</th><th>English Mean Fall 2009-2010</th>'+
-                          '<th>English Mean Fall 2010-2011</th><th>English Mean Fall 2011-2012</th>'+
-                          '<th>English Mean Fall 2012-2013</th><th>English Mean Spring 2012-2013</th>'+
-                          '<th>English Mean Spring 2013-2014</th><th>English No. Tested Fall 2008-2009</th>'+
-                          '<th>English No. Tested Fall 2009-2010</th><th>English No. Tested Fall 2010-2011</th>'+
-                          '<th>English No. Tested Fall 2011-2012</th><th>English No. Tested Fall 2012-2013</th>'+
-                          '<th>English No. Tested Spring 2012-2013</th><th>English No. Tested Spring 2013-2014</th>'+
-                          '<th>Maths Mean Fall 2008-2009</th><th>Maths Mean Fall 2009-2010</th>'+
-                          '<th>Maths Mean Fall 2010-2011</th><th>Maths Mean Fall 2011-2012</th>'+
-                          '<th>Maths Mean Fall 2012-2013</th><th>Maths Mean Spring 2012-2013</th>'+
-                          '<th>Maths Mean Spring 2013-2014</th><th>Maths No. Tested Fall 2008-2009</th>'+
-                          '<th>Maths No. Tested Fall 2009-2010</th><th>Maths No. Tested Fall 2010-2011</th>'+
-                          '<th>Maths No. Tested Fall 2011-2012</th><th>Maths No. Tested Fall 2012-2013</th>'+
-                          '<th>Maths No. Tested Spring 2012-2013</th><th>Maths No. Tested Spring 2013-2014</th>'+
-                          '<th>Reading Mean Fall 2008-2009</th><th>Reading Mean Fall 2009-2010</th>'+
-                          '<th>Reading Mean Fall 2010-2011</th><th>Reading Mean Fall 2011-2012</th>'+
-                          '<th>Reading Mean Fall 2012-2013</th><th>Reading Mean Spring 2012-2013</th>'+
-                          '<th>Reading Mean Spring 2013-2014</th><th>Reading No. Tested Fall 2008-2009</th>'+
-                          '<th>Reading No. Tested Fall 2009-2010</th><th>Reading No. Tested Fall 2010-2011</th>'+
-                          '<th>Reading No. Tested Fall 2011-2012</th><th>Reading No. Tested Fall 2012-2013</th>'+
-                          '<th>Reading No. Tested Spring 2012-2013</th><th>Reading No. Tested Spring 2013-2014</th>'+
-                          '<th>Science Mean Fall 2008-2009</th><th>Science Mean Fall 2009-2010</th>'+
-                          '<th>Science Mean Fall 2010-2011</th><th>Science Mean Fall 2011-2012</th>'+
-                          '<th>Science Mean Fall 2012-2013</th><th>Science Mean Spring 2012-2013</th>'+
-                          '<th>Science Mean Spring 2013-2014</th><th>Science No. Tested Fall 2008-2009</th>'+
-                          '<th>Science No. Tested Fall 2009-2010</th><th>Science No. Tested Fall 2010-2011</th>'+
-                          '<th>Science No. Tested Fall 2011-2012</th><th>Science No. Tested Fall 2012-2013</th>'+
-                          '<th>Science No. Tested Spring 2012-2013</th><th>Science No. Tested Spring 2013-2014</th>';
-                                 '</tr>';
-                    $("#"+parentDiv+"Table thead").html(thead);
+                  // dataset5Data = selectColumns.toCollection();
+                  //  //console.log(test);
+                  //  var thead = '<tr>'+
+                  //         '<th>Network</th><th>School</th><th>School ID</th><th>Unit</th><th>Grade</th>'+
+                  //         '<th>Composite Mean Fall 2008-2009</th><th>Composite Mean Fall 2009-2010</th>'+
+                  //         '<th>Composite Mean Fall 2010-2011</th><th>Composite Mean Fall 2011-2012</th>'+
+                  //         '<th>Composite Mean Fall 2012-2013</th><th>Composite Mean Spring 2012-2013</th>'+
+                  //         '<th>Composite Mean Spring 2013-2014</th><th>Composite No. Tested Fall 2008-2009</th>'+
+                  //         '<th>Composite No. Tested Fall 2009-2010</th><th>Composite No. Tested Fall 2010-2011</th>'+
+                  //         '<th>Composite No. Tested Fall 2011-2012</th><th>Composite No. Tested Fall 2012-2013</th>'+
+                  //         '<th>Composite No. Tested Spring 2012-2013</th><th>Composite No. Tested Spring 2013-2014</th>'+
+                  //         '<th>English Mean Fall 2008-2009</th><th>English Mean Fall 2009-2010</th>'+
+                  //         '<th>English Mean Fall 2010-2011</th><th>English Mean Fall 2011-2012</th>'+
+                  //         '<th>English Mean Fall 2012-2013</th><th>English Mean Spring 2012-2013</th>'+
+                  //         '<th>English Mean Spring 2013-2014</th><th>English No. Tested Fall 2008-2009</th>'+
+                  //         '<th>English No. Tested Fall 2009-2010</th><th>English No. Tested Fall 2010-2011</th>'+
+                  //         '<th>English No. Tested Fall 2011-2012</th><th>English No. Tested Fall 2012-2013</th>'+
+                  //         '<th>English No. Tested Spring 2012-2013</th><th>English No. Tested Spring 2013-2014</th>'+
+                  //         '<th>Maths Mean Fall 2008-2009</th><th>Maths Mean Fall 2009-2010</th>'+
+                  //         '<th>Maths Mean Fall 2010-2011</th><th>Maths Mean Fall 2011-2012</th>'+
+                  //         '<th>Maths Mean Fall 2012-2013</th><th>Maths Mean Spring 2012-2013</th>'+
+                  //         '<th>Maths Mean Spring 2013-2014</th><th>Maths No. Tested Fall 2008-2009</th>'+
+                  //         '<th>Maths No. Tested Fall 2009-2010</th><th>Maths No. Tested Fall 2010-2011</th>'+
+                  //         '<th>Maths No. Tested Fall 2011-2012</th><th>Maths No. Tested Fall 2012-2013</th>'+
+                  //         '<th>Maths No. Tested Spring 2012-2013</th><th>Maths No. Tested Spring 2013-2014</th>'+
+                  //         '<th>Reading Mean Fall 2008-2009</th><th>Reading Mean Fall 2009-2010</th>'+
+                  //         '<th>Reading Mean Fall 2010-2011</th><th>Reading Mean Fall 2011-2012</th>'+
+                  //         '<th>Reading Mean Fall 2012-2013</th><th>Reading Mean Spring 2012-2013</th>'+
+                  //         '<th>Reading Mean Spring 2013-2014</th><th>Reading No. Tested Fall 2008-2009</th>'+
+                  //         '<th>Reading No. Tested Fall 2009-2010</th><th>Reading No. Tested Fall 2010-2011</th>'+
+                  //         '<th>Reading No. Tested Fall 2011-2012</th><th>Reading No. Tested Fall 2012-2013</th>'+
+                  //         '<th>Reading No. Tested Spring 2012-2013</th><th>Reading No. Tested Spring 2013-2014</th>'+
+                  //         '<th>Science Mean Fall 2008-2009</th><th>Science Mean Fall 2009-2010</th>'+
+                  //         '<th>Science Mean Fall 2010-2011</th><th>Science Mean Fall 2011-2012</th>'+
+                  //         '<th>Science Mean Fall 2012-2013</th><th>Science Mean Spring 2012-2013</th>'+
+                  //         '<th>Science Mean Spring 2013-2014</th><th>Science No. Tested Fall 2008-2009</th>'+
+                  //         '<th>Science No. Tested Fall 2009-2010</th><th>Science No. Tested Fall 2010-2011</th>'+
+                  //         '<th>Science No. Tested Fall 2011-2012</th><th>Science No. Tested Fall 2012-2013</th>'+
+                  //         '<th>Science No. Tested Spring 2012-2013</th><th>Science No. Tested Spring 2013-2014</th>';
+                  //                '</tr>';
+                  //   $("#"+parentDiv+"Table thead").html(thead);
+                  var theadValues = selectColumns.listColumns();
+                        dataset5Data = selectColumns.toCollection();
+
+                        df5 = selectColumns;
+                        for (var i = 0; i < theadValues.length; i++) {
+                          var thead = '<th class="first_dataset_filter'+i+'">'+theadValues[i]+'</th>';
+                          var filter = '<div class="checkbox  pull-left pdR-15">'+
+                                        '<label>'+
+                                          '<input type="checkbox" class="" datasetNAme="dataset5Filters" class="first_dataset_filter_visiblity'+i+'">'+theadValues[i]+''+
+                                          '</label>'+
+                                        '</div>';
+                          $("#" + parentDiv + "Table thead tr").append(thead);
+                          $("#" + parentDiv + " .dataset5Filters").append(filter);
+                        }
                     var tbody = $("#"+parentDiv+"Table tbody");
 
               for ( var i = 0; i < dataset5Data.length; i++) {
