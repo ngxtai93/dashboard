@@ -1,4 +1,5 @@
 /**
+<<<<<<< HEAD
  * This class instance is created from the fron end, which will guide through the plotting of charts
  *@param {Enumerator} Chart It creates the instance of the selected charts
  **/

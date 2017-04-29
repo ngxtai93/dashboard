@@ -17,11 +17,17 @@ $(window).on('load', function () {
 
 });
 var Dataframe;
+/**
+* Base class for all dataset
+**/
 class Datasets {
     constructor() {
         DataFrame = dfjs.DataFrame;
     }
 }
+/**
+* Dataset for 1st file
+*/
 class Dataset1 extends Datasets {
     constructor(datasetName, parentDiv) {
         super();
@@ -32,6 +38,9 @@ class Dataset1 extends Datasets {
     }
 
 }
+/**
+* Dataset for 2nd file
+*/
 class Dataset2 extends Datasets {
     constructor(datasetName, parentDiv) {
         super();
@@ -42,6 +51,9 @@ class Dataset2 extends Datasets {
     }
 
 }
+/**
+* Dataset for 3rd file
+*/
 class Dataset3 extends Datasets {
     constructor(datasetName, parentDiv) {
         super();
@@ -52,6 +64,9 @@ class Dataset3 extends Datasets {
     }
 
 }
+/**
+* Dataset for 4th file
+*/
 class Dataset4 extends Datasets {
   constructor(datasetName, parentDiv) {
     super();
@@ -62,6 +77,9 @@ class Dataset4 extends Datasets {
   }
 
 }
+/**
+* Dataset for 5th file
+*/
 class Dataset5 extends Datasets {
   constructor(datasetName, parentDiv) {
     super();
@@ -73,12 +91,20 @@ class Dataset5 extends Datasets {
 
 }
 
-
+/**
+* Render dataset into specific format.
+* Since some file has a lot of inconsistency value in some column, we remove it out.
+**/
 class renderDatasets {
     constructor(datasetName, parentDiv) {
         this.datasetName = datasetName;
         this.parentDiv = parentDiv;
     }
+    /**
+    * render data for dataset1 into table
+    * @param {String} datasetName target dataset Name
+    * @param {String} parenDiv div of the parent for render data table
+    **/
     rederDataset1(datasetName, parentDiv) {
         DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
             df => {
@@ -181,6 +207,11 @@ class renderDatasets {
         });
     }
 
+    /**
+    * render data for dataset2 into table
+    * @param {String} datasetName target dataset Name
+    * @param {String} parenDiv div of the parent for render data table
+    **/
     rederDataset2(datasetName, parentDiv) {
         DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
             df => {
@@ -253,6 +284,11 @@ class renderDatasets {
         });
     }
 
+    /**
+    * render data for dataset3 into table
+    * @param {String} datasetName target dataset Name
+    * @param {String} parenDiv div of the parent for render data table
+    **/
     rederDataset3(datasetName, parentDiv) {
         DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
             df => {
@@ -357,6 +393,11 @@ class renderDatasets {
         });
     }
 
+    /**
+    * render data for dataset4 into table
+    * @param {String} datasetName target dataset Name
+    * @param {String} parenDiv div of the parent for render data table
+    **/
     rederDataset4(datasetName, parentDiv) {
       DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
           df => {
@@ -427,6 +468,11 @@ class renderDatasets {
       });
     }
 
+    /**
+    * render data for dataset5 into table
+    * @param {String} datasetName target dataset Name
+    * @param {String} parenDiv div of the parent for render data table
+    **/
     rederDataset5(datasetName, parentDiv) {
       DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
           df => {
