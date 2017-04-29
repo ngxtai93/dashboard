@@ -349,10 +349,10 @@
         // getStackChartData.plotStackchart(schoolArray);
 
         //$("#collapseOne").addClass("in");
-        var getDataFromFilter = getSelectedColumnValues($(this).attr("dataset-id"));
         var datasetName = $(this).attr("dataset-name");
         var typeOfChart = $(".selectChart").val();
         var divID = getReltedDivID(typeOfChart);
+        var getDataFromFilter = getSelectedColumnValues($(this).attr("dataset-id"), typeOfChart);
         $(".page-spinner").show();
         $(this).closest(".tab-pane").find(".chart-accordian").children().hide();
         $(this).closest(".tab-pane").find(".chart-accordian").children().find("#"+divID[0]).parent().show();
@@ -385,11 +385,13 @@
         return divID;
       }
       //function to get the data from selected filter column
-      function getSelectedColumnValues(datasetId) {
+      function getSelectedColumnValues(datasetId, typeOfChart) {
         var datasetID = datasetId;
-       var test = [];
+       var master = [];
        var labelCount =[];
        var labelArray =[];
+       var countArray =[];
+       var filterNameArray = [];
        var flag = $("#"+datasetID+" .numerical_filter_check").prop("checked");
        var getCondition;
        var getInputVal = $("#"+datasetID+" .numerical_value").val();
@@ -398,22 +400,62 @@
            getCondition = $(this).attr("value");
          }
        });
-       $("#"+datasetID+" .select-options .first_dataset").each( function () {
-         var getFilterNam = $(this).attr("filter-name");
-         var label = $(this).val();
-         labelArray = labelArray.concat(label);
-         for ( var i = 0; i < label.length; i++) {
-           var dec = new DecoratorFilter(df1,getFilterNam,label[i]);
-           if(flag) {
-             var dec = new Range(dec,getInputVal,getCondition,getFilterNam);
+
+       if (typeOfChart == 'Stack') {
+         var maxLength = 0;
+         $("#"+datasetID+" .select-options .first_dataset").each( function () {
+           var getFilterNam = $(this).attr("filter-name");
+           var label = $(this).val();
+           var innerArray = [];
+           var count = [];
+
+           if(label.length > maxLength) {
+             maxLength = label.length;
            }
-           var value = dec.getFiltered().count();
-           labelCount.push(value);
-           console.log(value);
-         }
-       });
-       console.log(labelCount, labelArray);
-       return [labelArray, labelCount];
+           filterNameArray.push(getFilterNam);
+           for ( var i = 0; i < label.length; i++) {
+             var dec = new DecoratorFilter(df1,getFilterNam,label[i]);
+             if(flag) {
+               var dec = new Range(dec,getInputVal,getCondition,getFilterNam);
+             }
+             var value = dec.getFiltered().count();
+             count.push(value);
+           }
+           for ( var i = 0; i < label.length; i++) {
+             innerArray.push([]);
+             innerArray[i].push(label[i]);
+             innerArray[i].push(count[i]);
+           }
+           master.push(innerArray);
+         });
+         console.log(master);
+         return [master, filterNameArray, maxLength];
+       } else {
+         $("#"+datasetID+" .select-options .first_dataset").each( function () {
+
+           var getFilterNam = $(this).attr("filter-name");
+           filterNameArray.push(getFilterNam);
+           var label = $(this).val();
+           countArray.push(label.length);
+           labelArray = labelArray.concat(label);
+           for ( var i = 0; i < label.length; i++) {
+             var dec = new DecoratorFilter(df1,getFilterNam,label[i]);
+             if(flag) {
+               var dec = new Range(dec,getInputVal,getCondition,getFilterNam);
+             }
+             var value = dec.getFiltered().count();
+             labelCount.push(value);
+             console.log(value);
+           }
+         });
+         console.log(labelCount, labelArray);
+
+           return [ labelArray, labelCount];
+       }
+
+
+
+
      }
     //   var oPizzaStore = new NewYorkPizzaStore();
     // oPizzaStore.orderPizza("pepperoni");
