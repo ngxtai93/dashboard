@@ -12,24 +12,11 @@ class Bar extends ChartType {
             gotDataFromFilter: gotDataFromFilter
         });
     }
-    // sendData(datasetName) {
-    //
-    //     DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
-    //         df => {
-    //             var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
-    //             getData = groupedDF.toCollection();
-    //             console.log(getData);
-    //             return getData;
-    //         }
-    //     ).catch(err => {
-    //         console.log(err);
-    //     });
-    // }
     /**
      * This method will get the Div id, Dataset name from constructor and values from a gotDataFromFilter and will plot the Bar chart
      **/
     displayChart() {
-        var test = this.sendData(this.datasetName)
+        //var test = this.sendData(this.datasetName)
         divTestID = this.divID;
         getData = this.gotDataFromFilter;
         var labelArray = [];
@@ -74,5 +61,3 @@ class Bar extends ChartType {
 
     }
 }
-
-//export default CheesePizza;

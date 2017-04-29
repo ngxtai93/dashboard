@@ -1,5 +1,4 @@
 /**
-<<<<<<< HEAD
  * This class instance is created from the fron end, which will guide through the plotting of charts
  *@param {Enumerator} Chart It creates the instance of the selected charts
  **/
@@ -20,7 +19,7 @@ class SelectDataset1 extends DatasetsC {
         let PlotchartConstructor = CHART[type];
         let chartType = null;
         if (PlotchartConstructor) {
-            console.log(datasetName);
+            //console.log(datasetName);
             chartType = new PlotchartConstructor(datasetName, divID, gotDataFromFilter);
         }
         return chartType;
