@@ -9,9 +9,9 @@ class Filter{
     return this.instance;
   }
 
-  generateColumnFilter(columnName){ //Collection of column header
-    var collections = df1.select(columnName).distinct(columnName).toCollection();
-    var test = df1.select(columnName).toArray();
+  generateColumnFilter(columnName, df){ //Collection of column header
+    var collections = df.select(columnName).distinct(columnName).toCollection();
+    var test = df.select(columnName).toArray();
     //var output = '<select multiple id="columnfilter-'+ columnName +'">';
     var output = '';
     for (var i = 0; i < collections.length; i++) {

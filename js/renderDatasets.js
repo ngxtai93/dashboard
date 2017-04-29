@@ -98,7 +98,7 @@ class renderDatasets {
                 // var theadValues = selectColumns.listColumns();
                 // dataset1Data = selectColumns.toCollection();
 
-                // df1 = selectColumns;
+                 df1 = selectColumns;
                 //console.log(test);
                 // var thead = '<tr>' +
                 //     '<th class="id1">School ID</th><th class="name1">School Name</th><th class="EMH_School1">EMH_School</th><th class="address1">Street Address</th>' +
