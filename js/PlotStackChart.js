@@ -58,13 +58,8 @@ class Stack extends ChartType {
     // getstackData = getstackChartData(schoolArray, (result) => {
     //   Res = result;
     // });
-<<<<<<< HEAD
-    setTimeout ( function () {
-=======
     //setTimeout ( function () {
       var filterNameArray, labelArray, labelCount, countArray =[];
->>>>>>> f4b6881d740777b8aab60b14bd6e636cf4e25b19
-
       var data1Array = [];
       var data2Array = [];
       data1Array = getStackData[0];
@@ -97,52 +92,13 @@ class Stack extends ChartType {
         console.log(dataArray);
       }
 
-<<<<<<< HEAD
-      var all = [];
-      var test1 = {
-          label: 'Average Student Attendance %',
-          data: data1Array,
-          backgroundColor: backgroundColorArray,
-          borderColor: borderColorArray,
-          borderWidth: 1
-      }
-      var test2 = {
-        label: 'Average Teacher Attendance',
-        data: data2Array,
-        backgroundColor: [
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 99, 132, 0.2)'
-        ],
-        borderColor: [
-            'rgba(255, 159, 64, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 99, 132, 1)'
-        ],
-        borderWidth: 1
-    }
-    all.push(test1);
-    all.push(test2);
-=======
       var label =['test', 'tessd'];
 //var test = [];
 //test.push(obj);
->>>>>>> f4b6881d740777b8aab60b14bd6e636cf4e25b19
       var ctxStack = document.getElementById(divTestID);;
       var stackChart = new Chart(ctxStack, {
       type: 'bar',
       data: {
-<<<<<<< HEAD
-          labels: schoolArray,
-          datasets: all
-      },
-=======
           labels: this.gotDataFromFilter[1],
           datasets: allObj
         },
@@ -167,8 +123,6 @@ class Stack extends ChartType {
           //     ],
           //     borderWidth: 1
           // }
-
->>>>>>> f4b6881d740777b8aab60b14bd6e636cf4e25b19
       options: {
           scales: {
               yAxes: [{
