@@ -16,6 +16,10 @@ class Stack extends ChartType {
       var dataManipulator = new FacadeStackChart();
       var allObj = dataManipulator.getData(this.gotDataFromFilter);
 
+      /*Stack Chart Start*/
+      $(".dataset1StackDiv").find("#"+divTestID).remove();
+      var canvas = '<canvas id="dataset1StackChart" width="400" height="auto"></canvas>';
+      $(".dataset1StackDiv").append(canvas);
       var ctxStack = document.getElementById(divTestID);;
       var stackChart = new Chart(ctxStack, {
       type: 'bar',

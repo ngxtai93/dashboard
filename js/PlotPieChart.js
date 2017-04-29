@@ -53,6 +53,9 @@ class Pie extends ChartType {
               hoverBackgroundColor.push("rgba(" + color1 + "," + color2 + "," + color3 +")");
           }
           /*Pie Chart Start*/
+          $(".pie_chart_div").find("#"+divTestID).remove();
+          var canvas = '<canvas id="dataset1PieChart" width="400" height="auto"></canvas>';
+          $(".pie_chart_div").append(canvas);
           var ctxPie = document.getElementById(divTestID);;
           var myPieChart = new Chart(ctxPie,{
               type: 'pie',

@@ -55,7 +55,10 @@ class Doughnut extends ChartType {
                 backgroundColorArray.push("rgba(" + color1 + "," + color2 + "," + color3 + ")");
                 hoverBackgroundColor.push("rgba(" + color1 + "," + color2 + "," + color3 +")");
             }
-            /*Pie Chart Start*/
+            /*Doughnut Chart Start*/
+            $(".doughnut_chart_div").find("#"+divTestID).remove();
+            var canvas = '<canvas id="dataset1DoughnutChart" width="400" height="auto"></canvas>';
+            $(".doughnut_chart_div").append(canvas);
             var ctxDoughnut = document.getElementById(divTestID);
             var myDoughnutChart = new Chart(ctxDoughnut,{
                 type: 'doughnut',

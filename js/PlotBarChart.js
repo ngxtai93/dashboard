@@ -38,8 +38,12 @@ class Bar extends ChartType {
               backgroundColorArray.push("rgba(" + color1 + "," + color2 + "," + color3 + "," + 0.6 + ")");
               borderColorArray.push("rgba(" + color1 + "," + color2 + "," + color3 + "," + 1 + ")");
           }
+          $(".bar_chart_div").find("#"+divTestID).remove();
+          var canvas = '<canvas id="dataset1BarChart" width="400" height="auto"></canvas>';
+          $(".bar_chart_div").append(canvas);
           var ctxBar = document.getElementById(divTestID);
-          var barChart = new Chart(ctxBar, {
+          //barChart.destroy();
+          barChart = new Chart(ctxBar, {
               type: 'bar',
               data: {
                   labels: labelArray,

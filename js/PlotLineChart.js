@@ -27,6 +27,10 @@ class Line extends ChartType {
           dataArray.push(getData[1][i]);
 
       }
+      /*Line Chart Start*/
+      $(".line_chart_div").find("#"+divTestID).remove();
+      var canvas = '<canvas id="dataset1LineChart" width="400" height="auto"></canvas>';
+      $(".line_chart_div").append(canvas);
       var ctxLine = document.getElementById(divTestID);;
       var lineChart = new Chart(ctxLine, {
           type: 'line',
