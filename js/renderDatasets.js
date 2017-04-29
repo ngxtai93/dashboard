@@ -294,27 +294,6 @@ class renderDatasets {
                 // $("#" + parentDiv + "Table thead").html(thead);
                 var theadValues = selectColumns.listColumns();
                 dataset3Data = selectColumns.toCollection();
-<<<<<<< HEAD
-                var thead = '<tr>' +
-                    '<th>School ID</th><th>School Name</th><th>Street Address</th><th>City</th><th>State</th>' +
-                    '<th>ZIP</th><th>Phone Number</th><th>Website</th><th>Blue Ribbon Award</th>' +
-                    '<th>CPS Performance Policy Level</th><th>CPS Performance Policy Status</th>' +
-                    '<th>Probation Length</th><th>Overall Rating</th><th>Student Response Rate</th>' +
-                    '<th>Teacher Response Rate</th><th>Involved Family</th><th>Supportive Environment</th>' +
-                    '<th>Ambitious Instruction</th><th>Effective Leaders</th><th>Collaborative Teachers</th>' +
-                    '<th>Safety</th><th>School Community</th><th>Parent-Teacher Partnership</th>' +
-                    '<th>Quality of Facilities</th><th>Healthy Schools Certification</th>' +
-                    '<th>Creative Schools Certification</th><th>College Enrollment Rate Percentage 2013</th>' +
-                    '<th>College Enrollment Rate Percentage 2012</th>' +
-                    '<th>College Persistence Rate Percentage 2013</th>' +
-                    '<th>College Persistence Rate Percentage 2012</th><th>Student Attendance Percentage 2013</th>' +
-                    '<th>Student Attendance Percentage 2012</th><th>One-Year DropOut Rate Percentage 2013</th>' +
-                    '<th>One-Year DropOut Rate Percentage 2012</th><th>X Coordinate</th><th>Y Coordinate</th>' +
-                    '<th>Longitude</th><th>Latitude</th><th>Location</th>';
-                '</tr>';
-                $("#" + parentDiv + "Table thead").html(thead);
-=======
-
                 df3 = selectColumns;
                 for (var i = 0; i < theadValues.length; i++) {
                   var thead = '<th class="first_dataset_filter'+i+'">'+theadValues[i]+'</th>';
@@ -326,7 +305,6 @@ class renderDatasets {
                   $("#" + parentDiv + "Table thead tr").append(thead);
                   $("#" + parentDiv + " .dataset3Filters").append(filter);
                 }
->>>>>>> bf4724a142d4ab0dd73264a505b7443618f07e2b
                 var tbody = $("#" + parentDiv + "Table tbody");
 
                 for (var i = 0; i < dataset3Data.length; i++) {
@@ -389,22 +367,6 @@ class renderDatasets {
                                '2011-2012 PERFORMANCE GRADE','2011-2012 ENVIRONMENT CATEGORY SCORE',
                                '2011-2012 ENVIRONMENT GRADE','2011-2012 ADDITIONAL CREDIT',
                                '2010-11 PROGRESS REPORT GRADE','2009-10 PROGRESS REPORT GRADE');
-
-<<<<<<< HEAD
-                  dataset4Data = selectColumns.toCollection();
-                   var thead = '<tr>'+
-                          '<th>DBN</th><th>DISTRICT</th><th>SCHOOL</th><th>PRINCIPAL</th>'+
-                          '<th>PROGRESS REPORT TYPE</th><th>SCHOOL LEVEL</th><th>PEER INDEX</th>'+
-                          '<th>2011-2012 OVERALL GRADE</th><th>2011-2012 OVERALL SCORE</th>'+
-                          '<th>2011-12 OVERALL PERCENTILE</th><th>2011-2012 PROGRESS CATEGORY SCORE</th>'+
-                          '<th>2011-2012 PROGRESS GRADE</th><th>2011-2012 PERFORMANCE CATEGORY SCORE</th>'+
-                          '<th>2011-2012 PERFORMANCE GRADE</th><th>2011-2012 ENVIRONMENT CATEGORY SCORE</th>'+
-                          '<th>2011-2012 ENVIRONMENT GRADE</th>'+
-                          '<th>2011-2012 ADDITIONAL CREDIT</th><th>2010-11 PROGRESS REPORT GRADE</th>'+
-                          '<th>2009-10 PROGRESS REPORT GRADE</th>';
-                                 '</tr>';
-                    $("#"+parentDiv+"Table thead").html(thead);
-=======
                   // dataset4Data = selectColumns.toCollection();
                   //  //console.log(test);
                   //  var thead = '<tr>'+
@@ -433,7 +395,6 @@ class renderDatasets {
                           $("#" + parentDiv + "Table thead tr").append(thead);
                           $("#" + parentDiv + " .dataset4Filters").append(filter);
                         }
->>>>>>> bf4724a142d4ab0dd73264a505b7443618f07e2b
                     var tbody = $("#"+parentDiv+"Table tbody");
 
               for ( var i = 0; i < dataset4Data.length; i++) {
