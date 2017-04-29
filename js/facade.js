@@ -1,4 +1,13 @@
+/**
+* This class intended is to be facade object for stackChart.
+* It perform multiple class involving operation during the call.
+**/
 class FacadeStackChart{
+  /**
+  * This method will prepare data object for stackChart
+  * @param {String[][][][]} data data array needed to be transform to Stackchart format
+  * @return {Object[]} object for Stackchart
+  **/
   getData(data){
     var dataManipulator = new StackDataManipulation();
     var allObj = dataManipulator.generateData(data);
@@ -6,7 +15,16 @@ class FacadeStackChart{
   }
 }
 
+/**
+* Class will generate color string per request
+**/
 class ColorManager{
+
+  /**
+  * Gerenate color string array
+  * @param {Number} amount of color string needed to be generate
+  * @return {String[]} String array of color
+  **/
   generateColor(amount){
     var outputArr = []
     for (var i =0;i<amount;i++) {
@@ -19,7 +37,16 @@ class ColorManager{
   }
 }
 
+/**
+* Create stackchart's format per request
+**/
 class StackDataManipulation{
+
+  /**
+  * This method will prepare data object for stackChart
+  * @param {String[][][][]} data data array needed to be transform to Stackchart format
+  * @return {Object[]} object for Stackchart
+  **/
   generateData(data){
     var allObj = [];
     var master = data[0];
