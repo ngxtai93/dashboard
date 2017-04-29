@@ -23,7 +23,7 @@ $(".plot_chart").on('click', function(e) {
     var getDataFromFilter = getSelectedColumnValues($(this).attr("dataset-id"), typeOfChart, df);
     $(".page-spinner").show();
 
-    $("#chartDiv").children().hide();
+    $("#chartDiv").find(".chart-div").hide();
     $("#chartDiv").children().find(".panel-collapse").removeClass("in");
     $("#chartDiv #" + divID[0]).parent().parent().show();
     $("#chartDiv #" + divID[0]).parent().show();
