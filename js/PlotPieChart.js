@@ -39,6 +39,7 @@ class Pie extends ChartType {
             data: {
                 labels: labelArray,
                 datasets: [{
+                  label: "Pie Chart",
                     data: dataArray,
                     backgroundColor: backgroundColorArray,
                     hoverBackgroundColor: hoverBackgroundColor

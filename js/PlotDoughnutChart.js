@@ -45,6 +45,7 @@ class Doughnut extends ChartType {
                   labels: labelArray,
                   datasets: [
                       {
+                        label:'Doughnut Chart',
                           data: dataArray,
                           backgroundColor: backgroundColorArray,
                           hoverBackgroundColor: hoverBackgroundColor

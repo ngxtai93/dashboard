@@ -41,7 +41,7 @@ class Bar extends ChartType {
             data: {
                 labels: labelArray,
                 datasets: [{
-                    label: 'User Values',
+                    label: 'Bar Chart',
                     data: dataArray,
                     backgroundColor: backgroundColorArray,
                     borderColor: borderColorArray,
