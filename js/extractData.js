@@ -109,16 +109,6 @@ class BarChart extends PlotChart {
     }
     plotBarchart() {
         super.sendData(this.datasetName);
-        //console.log(getData);
-        // var getData;
-        // DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
-        //     df => {
-        //       var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
-        //       getData = groupedDF.toCollection();
-        //     }
-        //   ).catch(err => {
-        //       console.log(err);
-        //   });
         setTimeout(function() {
             var labelArray = [];
             var dataArray = [];

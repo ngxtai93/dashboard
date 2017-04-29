@@ -14,19 +14,12 @@ $(window).on('load', function () {
     renderD = new Dataset5('All_School_13-14', 'dataset5');
     //Hide Page spinner
     $(".page-spinner").fadeOut();
-    // // <script type="text/javascript">
-    //     $('.datasetFilters input[type="checkbox"]').on('click', function () {
-    //       var getDatasetVar = $(this).attr("datasetNAme");
-    //       getDatasetVar.push()
-    //     });
-    // // </script>
 
 });
 var Dataframe;
 class Datasets {
     constructor() {
         DataFrame = dfjs.DataFrame;
-        console.log("Instance to Dataframe created");
     }
 }
 class Dataset1 extends Datasets {
@@ -245,12 +238,6 @@ class renderDatasets {
     rederDataset3(datasetName, parentDiv) {
         DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
             df => {
-                //chart()
-                // var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
-                // chartVar = groupedDF.toCollection();
-                //console.log(groupedDF.aggregate(group => group.count()));
-
-                //console.log(cleanDF.listColumns());
                 const selectColumns = df.select('School ID', 'School Name', 'Street Address', 'City', 'State', 'ZIP', 'Phone Number',
                     'Website', 'Blue Ribbon Award', 'CPS Performance Policy Level',
                     'CPS Performance Policy Status', 'Probation Length', 'Overall Rating',
@@ -268,7 +255,6 @@ class renderDatasets {
                     'X Coordinate', 'Y Coordinate', 'Longitude', 'Latitude', 'Location');
 
                 dataset3Data = selectColumns.toCollection();
-                //console.log(test);
                 var thead = '<tr>' +
                     '<th>School ID</th><th>School Name</th><th>Street Address</th><th>City</th><th>State</th>' +
                     '<th>ZIP</th><th>Phone Number</th><th>Website</th><th>Blue Ribbon Award</th>' +
@@ -342,12 +328,6 @@ class renderDatasets {
     rederDataset4(datasetName, parentDiv) {
       DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
           df => {
-            //chart()
-            // var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
-            // chartVar = groupedDF.toCollection();
-                            //console.log(groupedDF.aggregate(group => group.count()));
-
-               //console.log(cleanDF.listColumns());
                const selectColumns = df.select('DBN','DISTRICT','SCHOOL','PRINCIPAL','PROGRESS REPORT TYPE','SCHOOL LEVEL',
                                'PEER INDEX','2011-2012 OVERALL GRADE','2011-2012 OVERALL SCORE',
                                '2011-12 OVERALL PERCENTILE','2011-2012 PROGRESS CATEGORY SCORE',
@@ -357,7 +337,6 @@ class renderDatasets {
                                '2010-11 PROGRESS REPORT GRADE','2009-10 PROGRESS REPORT GRADE');
 
                   dataset4Data = selectColumns.toCollection();
-                   //console.log(test);
                    var thead = '<tr>'+
                           '<th>DBN</th><th>DISTRICT</th><th>SCHOOL</th><th>PRINCIPAL</th>'+
                           '<th>PROGRESS REPORT TYPE</th><th>SCHOOL LEVEL</th><th>PEER INDEX</th>'+
@@ -405,12 +384,6 @@ class renderDatasets {
     rederDataset5(datasetName, parentDiv) {
       DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
           df => {
-            //chart()
-            // var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
-            // chartVar = groupedDF.toCollection();
-                            //console.log(groupedDF.aggregate(group => group.count()));
-
-               //console.log(cleanDF.listColumns());
                const selectColumns = df.select('Network','School','School ID','Unit','Grade','Composite Mean Fall 2008-2009',
                                'Composite Mean Fall 2009-2010','Composite Mean Fall 2010-2011',
                                'Composite Mean Fall 2011-2012','Composite Mean Fall 2012-2013',

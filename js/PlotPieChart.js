@@ -37,19 +37,7 @@ class Pie extends ChartType {
   displayChart() {
     //  this.pieChartData(this.datasetName);
       divTestID = this.divID;
-      console.log("In Pie chart");
-      console.log(this.gotDataFromFilter);
       getPieData = this.gotDataFromFilter;
-      // var getData;
-      // DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
-      //     df => {
-      //       var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
-      //       getData = groupedDF.toCollection();
-      //     }
-      //   ).catch(err => {
-      //       console.log(err);
-      //   });
-      //setTimeout(function() {
           var labelArray = [];
           var dataArray = [];
           var backgroundColorArray = [];
@@ -83,5 +71,3 @@ class Pie extends ChartType {
 
   }
 }
-
-//export default CheesePizza;

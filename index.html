@@ -106,12 +106,6 @@
                               </div>
                               <div class="form-group select-options">
                                 <div class="col-lg-12">
-                                  <!-- <p>Test</p> -->
-                                  <!-- <select class="selectpicker" multiple>
-                                    <option>Mustard</option>
-                                    <option>Ketchup</option>
-                                    <option>Relish</option>
-                                  </select> -->
                                 </div>
                               </div>
                               <div class="form-group">
@@ -166,7 +160,6 @@
                             </div>
                             <div class="form-group">
                                <div class="col-lg-10 col-lg-offset-2 text-right">
-                                 <a href="#" id="test" dataset-name = "Ch_PS_11-12" class="btn btn-primary mrL-15 mrR-10">test</a>
                                  <button type="reset" class="btn btn-default">Cancel</button>
                                  <a href="#" id="PlotChart1" dataset-name = "Ch_PS_11-12" dataset-id="dataset1" class="btn btn-primary mrL-15 mrR-10">Plot Chart</a>
                                </div>
@@ -325,6 +318,7 @@
     <script type="text/javascript" src="js/Filter.js"></script>
     <script type="text/javascript" src="js/Strategy.js"></script>
     <script type="text/javascript" src="js/Decorator.js"></script>
+    <script type="text/javascript" src="js/facade.js"></script>
 
     <script type="text/javascript">
       $(window).on('load', function () {
@@ -335,21 +329,6 @@
     <script type="text/javascript">
       $("#PlotChart1").on('click', function (e) {
         e.preventDefault();
-        // var datasetName = $(this).attr("dataset-name");
-        // var getBarChartData = new BarChart(datasetName);
-        // getBarChartData.plotBarchart();
-        // var getLineChartData = new LineChart(datasetName);
-        // getLineChartData.plotLinechart();
-        // var getPieChartData = new PieChart(datasetName);
-        // getPieChartData.plotPiechart();
-        // var getDoughnutChartData = new DoughnutChart(datasetName);
-        // getDoughnutChartData.plotDoughnutchart();
-        //
-        // var getStackChartData = new StackChart('Ch_PS_11-12');
-        // var schoolArray = ["Abraham Lincoln Elementary School", "Ambrose Plamondon Elementary School", "Andrew Carnegie Elementary School", "Bret Harte Elementary School", "Carl Schurz High School", "Carter G Woodson South Elementary School"];
-        // getStackChartData.plotStackchart(schoolArray);
-
-        //$("#collapseOne").addClass("in");
         var datasetName = $(this).attr("dataset-name");
         var typeOfChart = $(".selectChart").val();
         var divID = getReltedDivID(typeOfChart);
@@ -360,7 +339,6 @@
         $(this).closest(".tab-pane").find(".chart-accordian").children().find("#"+divID[0]).addClass("in");
         var selectedDatasetName= new SelectDataset1();
         selectedDatasetName.createChart(typeOfChart, datasetName, divID[1], getDataFromFilter);
-        //$(document).scrollTo(.closest(".tab-pane").find(".chart-accordian").children().find("#"+divID[0]).parent());
         setTimeout(function () {
           $(".page-spinner").hide();
         },2000);
@@ -429,7 +407,6 @@
            }
            master.push(innerArray);
          });
-         console.log(master);
          return [master, filterNameArray, maxLength];
        } else {
          $("#"+datasetID+" .select-options .first_dataset").each( function () {
@@ -446,10 +423,8 @@
              }
              var value = dec.getFiltered().count();
              labelCount.push(value);
-             console.log(value);
            }
          });
-         console.log(labelCount, labelArray);
 
            return [ labelArray, labelCount];
        }
@@ -469,13 +444,11 @@
           if($(this).prop("checked") == true){
             if(getDatasetVar == "dataset1Filters"){
               dataset1Filters.push($(this).parent().text());
-              console.log(dataset1Filters);
             }
             //for other GlobalVariables
           } else {
             if(getDatasetVar == "dataset1Filters"){
               dataset1Filters.splice(dataset1Filters.indexOf($(this).parent().text() ), 1);
-              console.log(dataset1Filters);
             }
           }
 
@@ -498,11 +471,7 @@
             $(this).parent().parent().siblings(".select-options").append(selectDropdown);
             var option = ft.generateColumnFilter(dataset1Filters[i]);
               $(".selectDatasetFilter"+i).append(option);
-          }
-
-
-          //var option = '<option value="Mustard">Mustard</option>'+
-                    //  '<option value="sdfsfsd">sfsfds</option>';
+          } '<option value="sdfsfsd">sfsfds</option>';
 
         });
 

@@ -6,21 +6,6 @@ class Line extends ChartType {
       gotDataFromFilter: gotDataFromFilter
     });
   }
-
-  // sendData(datasetName) {
-  //     console.log(datasetName + "In function");
-  //
-  //     DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
-  //         df => {
-  //             var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
-  //             getData = groupedDF.toCollection();
-  //             console.log(getData);
-  //             return false;
-  //         }
-  //     ).catch(err => {
-  //         console.log(err);
-  //     });
-  //   }
   displayChart() {
   //  this.sendData(this.datasetName)
     divTestID = this.divID;
@@ -75,5 +60,3 @@ class Line extends ChartType {
 
   }
 }
-
-//export default CheesePizza;

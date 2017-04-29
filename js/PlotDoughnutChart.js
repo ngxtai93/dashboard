@@ -40,16 +40,7 @@ class Doughnut extends ChartType {
         console.log("In Doughnut chart");
         console.log(this.gotDataFromFilter);
         getDoughnutData = this.gotDataFromFilter;
-        // var getData;
-        // DataFrame.fromCSV('datasets/'+this.datasetName+'.csv').then(
-        //     df => {
-        //       var groupedDF = df.groupBy('ZIP').aggregate(group => group.count()).rename('aggregation', 'Count');
-        //       getData = groupedDF.toCollection();
-        //     }
-        //   ).catch(err => {
-        //       console.log(err);
-        //   });
-        //setTimeout(function() {
+
             var labelArray = [];
             var dataArray = [];
             var backgroundColorArray = [];
@@ -83,5 +74,3 @@ class Doughnut extends ChartType {
 
     }
 }
-
-//export default CheesePizza;
