@@ -3,8 +3,10 @@ html {
 }
 
 body {
-    background-color: #f7f7f7;
+    background-color: #fafbfc !important;
+    background-image: url("http://listmachinepro.com/wp-content/uploads/2018/03/school-education-powerpoint-templates-presentation-powerpoint-9365-within-powerpoint-background-education.jpeg") !important;
 }
+
 
 .float-right {
     float: right;
@@ -20,7 +22,8 @@ body {
 }
 
 .content {
-    background: #278998;
+   /* background: #278998;*/
+   background: #f39f21;
     color: #fff;
 }
 
@@ -234,16 +237,17 @@ body {
 }
 
 .select-datasets-tab.nav-tabs>li.active>a, .select-datasets-tab.nav-tabs>li.active>a:focus, .select-datasets-tab.nav-tabs>li.active>a:hover, .select-datasets-tab.nav-tabs>li.active>a:focus:hover {
-    border-top: 2px solid #f39f21;
+    border-top: 2px solid brown;
     border-right: 2px solid #eee;
     border-left: 2px solid #eee;
     box-shadow: none !important;
     border-bottom: none !important;
-    color: #f39f21;
+    /*color: #f39f21;*/
+    color: brown;
 }
 
 .select-datasets-tab.nav-tabs>li>a:hover {
-    color: #f39f21 !important;
+    color: brown !important;
     box-shadow: inset 0 -1px 0 #ddd;
 }
 
@@ -301,3 +305,4 @@ input[type="checkbox"], .checkbox input[type="checkbox"], .checkbox-inline input
 .filter_disabled {
   background-color: #f3f0f0;
 }
+
