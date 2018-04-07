@@ -11,9 +11,9 @@
 
     <title>Education Analysis</title>
     <!-- Scripts -->
-    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="js/dataframe.js"></script>
-    <script type="text/javascript" src="js/chart.js"></script>
+    <script type="text/javascript" src="js/libraries/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/libraries/dataframe.js"></script>
+    <script type="text/javascript" src="js/libraries/chart.js"></script>
     
 
     <!--css -->
@@ -25,9 +25,6 @@
 
 <body class="bc">
     <div class="wrapper clearfix">
-        <!-- Spinner start-->
-        
-        <!-- Spinner end-->
         <!-- navbar start -->
         <nav class="navbar navbra-default">
             <div class="container-fluid">
@@ -60,7 +57,7 @@
                       <li><a href="#dataset3" data-toggle="tab" dataset-name="Ch_PS_13-14" dataset-id="dataset3">Chicago Schools 2013-2014</a></li>
                       <li><a href="#dataset4" data-toggle="tab" dataset-name="All_Progress_11-12" dataset-id="dataset4">All Progress Report 2011-2012</a></li>
                       <li><a href="#dataset5" data-toggle="tab" dataset-name="All_School_13-14" dataset-id="dataset5">All School Subject Details</a></li>
-                    </ul>
+                  </ul>
                     <div id="myTabContent" class="tab-content">
                       <div class="tab-pane fade active in" id="dataset1" dataset-name="Ch_PS_11-12">
                         <div class="col-xs-12 table-overflow">
@@ -98,9 +95,9 @@
                                 </div>
                               </div>
                               <div class="form-group">
-                                <label for="select" class="col-lg-2 control-label">Select Chart</label>
+                                <label for="selectChart" class="col-lg-2 control-label">Select Chart</label>
                                 <div class="col-lg-10">
-                                  <select class="form-control selectChart" id="">
+                                  <select class="form-control selectChart" id="selectChart">
                                     <option value="Bar">Bar Chart</option>
                                     <option value="Line">Line Chart</option>
                                     <option value="Stack">Stack Chart</option>
@@ -672,12 +669,12 @@
     <script type="text/javascript" src="js/Decorator.js"></script>
     <script type="text/javascript" src="js/facade.js"></script>
 
-    <script type="text/javascript">
-      $(window).on('load', function () {
-        var test = new Datasets();
-        $(".numerical_filter_check").prop("checked", false);
-      });
-    </script>
+    <!--<script type="text/javascript">-->
+      <!--$(window).on('load', function () {-->
+        <!--var test = new Datasets();-->
+        <!--$(".numerical_filter_check").prop("checked", false);-->
+      <!--});-->
+    <!-- </script> -->
     <script type="text/javascript" src="bootstrap-3.3.4/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="bootstrap-3.3.4/bootstrap-3.3.4-dist/css/bootswatch.css">
     <link rel="stylesheet" href="bootstrap-3.3.4/bootstrap-3.3.4-dist/css/bootstrap.min.css">

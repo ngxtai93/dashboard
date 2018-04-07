@@ -1,7 +1,6 @@
 /*Render All the Datasets in Tabular form*/
 
 $(window).on('load', function () {
-
     //Render dataset1
     renderD = new Dataset1('Ch_PS_11-12', 'dataset1');
     //Render dataset2
@@ -34,7 +33,7 @@ class Dataset1 extends Datasets {
         this.datasetName = datasetName;
         this.parentDiv = parentDiv;
         var createInstance = new renderDatasets(datasetName, parentDiv);
-        createInstance.rederDataset1(datasetName, parentDiv);
+        createInstance.renderDataset1(datasetName, parentDiv);
     }
 
 }
@@ -47,7 +46,7 @@ class Dataset2 extends Datasets {
         this.datasetName = datasetName;
         this.parentDiv = parentDiv;
         var createInstance = new renderDatasets(datasetName, parentDiv);
-        createInstance.rederDataset2(datasetName, parentDiv);
+        createInstance.renderDataset2(datasetName, parentDiv);
     }
 
 }
@@ -60,7 +59,7 @@ class Dataset3 extends Datasets {
         this.datasetName = datasetName;
         this.parentDiv = parentDiv;
         var createInstance = new renderDatasets(datasetName, parentDiv);
-        createInstance.rederDataset3(datasetName, parentDiv);
+        createInstance.renderDataset3(datasetName, parentDiv);
     }
 
 }
@@ -73,7 +72,7 @@ class Dataset4 extends Datasets {
     this.datasetName=datasetName;
     this.parentDiv=parentDiv;
     var createInstance = new renderDatasets(datasetName, parentDiv);
-    createInstance.rederDataset4(datasetName, parentDiv);
+    createInstance.renderDataset4(datasetName, parentDiv);
   }
 
 }
@@ -86,7 +85,7 @@ class Dataset5 extends Datasets {
     this.datasetName=datasetName;
     this.parentDiv=parentDiv;
     var createInstance = new renderDatasets(datasetName, parentDiv);
-    createInstance.rederDataset5(datasetName, parentDiv);
+    createInstance.renderDataset5(datasetName, parentDiv);
   }
 
 }
@@ -105,7 +104,7 @@ class renderDatasets {
     * @param {String} datasetName target dataset Name
     * @param {String} parenDiv div of the parent for render data table
     **/
-    rederDataset1(datasetName, parentDiv) {
+    renderDataset1(datasetName, parentDiv) {
         DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
             df => {
                 //console.log(cleanDF.listColumns());
@@ -212,7 +211,7 @@ class renderDatasets {
     * @param {String} datasetName target dataset Name
     * @param {String} parenDiv div of the parent for render data table
     **/
-    rederDataset2(datasetName, parentDiv) {
+    renderDataset2(datasetName, parentDiv) {
         DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
             df => {
                 //chart()
@@ -289,7 +288,7 @@ class renderDatasets {
     * @param {String} datasetName target dataset Name
     * @param {String} parenDiv div of the parent for render data table
     **/
-    rederDataset3(datasetName, parentDiv) {
+    renderDataset3(datasetName, parentDiv) {
         DataFrame.fromCSV('datasets/' + datasetName + '.csv').then(
             df => {
                 const selectColumns = df.select('School ID', 'School Name', 'Street Address', 'City', 'State', 'ZIP', 'Phone Number',
@@ -398,7 +397,7 @@ class renderDatasets {
     * @param {String} datasetName target dataset Name
     * @param {String} parenDiv div of the parent for render data table
     **/
-    rederDataset4(datasetName, parentDiv) {
+    renderDataset4(datasetName, parentDiv) {
       DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
           df => {
                const selectColumns = df.select('DBN','DISTRICT','SCHOOL','PRINCIPAL','PROGRESS REPORT TYPE','SCHOOL LEVEL',
@@ -473,7 +472,7 @@ class renderDatasets {
     * @param {String} datasetName target dataset Name
     * @param {String} parenDiv div of the parent for render data table
     **/
-    rederDataset5(datasetName, parentDiv) {
+    renderDataset5(datasetName, parentDiv) {
       DataFrame.fromCSV('datasets/'+datasetName+'.csv').then(
           df => {
                const selectColumns = df.select('Network','School','School ID','Unit','Grade','Composite Mean Fall 2008-2009',
